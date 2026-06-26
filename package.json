@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome check --write",
+    "prepare": "lefthook install"
   },
   "dependencies": {
     "next": "16.2.9",
@@ -16,11 +16,14 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
+    "@commitlint/cli": "^21.1.0",
+    "@commitlint/config-conventional": "^21.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "lefthook": "^2.1.9",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
