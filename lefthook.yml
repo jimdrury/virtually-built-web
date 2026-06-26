@@ -1,7 +1,8 @@
 pre-commit:
   commands:
     biome:
-      run: pnpm exec biome check --write --staged
+      glob: "*.{js,ts,jsx,tsx,mjs,cjs,json,jsonc,css,scss,graphql,gql}"
+      run: pnpm exec biome check --write {staged_files}
       stage_fixed: true
 
 commit-msg:
