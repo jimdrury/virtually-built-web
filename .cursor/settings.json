@@ -1,0 +1,10 @@
+{
+  "plugins": {
+    "claude-plugins-official/github": {
+      "enabled": true
+    },
+    "vercel": {
+      "enabled": true
+    }
+  }
+}
