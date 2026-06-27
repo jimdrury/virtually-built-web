@@ -11,6 +11,13 @@ const config: StorybookConfig = {
   ],
   framework: "@storybook/nextjs-vite",
   staticDirs: ["../public"],
+  async viteFinal(config, { configType }) {
+    const base = process.env.STORYBOOK_BASE_PATH;
+    if (base && configType === "PRODUCTION") {
+      config.base = base;
+    }
+    return config;
+  },
 };
 
 export default config;
