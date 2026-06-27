@@ -22,7 +22,7 @@
   }
 }
 
-@media (min-width: 90em) {
+@media (min-width: 64.0625em) {
   .about-section__inner {
     flex-direction: row;
     align-items: center;

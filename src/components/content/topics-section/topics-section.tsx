@@ -1,5 +1,4 @@
-import type Link from "next/link";
-import type { ComponentProps, FC } from "react";
+import type { FC } from "react";
 import { useId } from "react";
 import type { IconType } from "react-icons";
 
@@ -11,8 +10,7 @@ import styles from "./topics-section.module.css";
 
 export interface TopicItem {
   label: string;
-  href?: ComponentProps<typeof Link>["href"];
-  icon?: IconType;
+  icon: IconType;
 }
 
 export interface TopicsSectionProps {
@@ -54,12 +52,7 @@ export const TopicsSection: FC<TopicsSectionProps> = ({
       <ul className={styles["topics-section__list"]}>
         {topics.map((topic) => (
           <li key={topic.label} className={styles["topics-section__item"]}>
-            <TopicPill
-              href={topic.href}
-              icon={topic.icon}
-              iconVisibility="desktop"
-              fullWidth
-            >
+            <TopicPill icon={topic.icon} fullWidth>
               {topic.label}
             </TopicPill>
           </li>

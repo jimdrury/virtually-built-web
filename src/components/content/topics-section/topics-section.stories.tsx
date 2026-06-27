@@ -6,22 +6,18 @@ import { TopicsSection } from ".";
 const defaultTopics = [
   {
     label: "Building with AI",
-    href: "/episodes?topic=building-with-ai",
     icon: LuSparkles,
   },
   {
     label: "Agent Frameworks",
-    href: "/episodes?topic=agent-frameworks",
     icon: LuBot,
   },
   {
     label: "Google's Agentic Offerings",
-    href: "/episodes?topic=google-agentic-offerings",
     icon: LuLayers,
   },
   {
     label: "Different Models and Modalities",
-    href: "/episodes?topic=different-models-and-modalities",
     icon: LuBoxes,
   },
 ] as const;

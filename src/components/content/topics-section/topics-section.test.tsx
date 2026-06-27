@@ -15,7 +15,6 @@ describe("TopicsSection", () => {
           ...sampleTopics,
           {
             label: "Platform engineering",
-            href: "/topics/platform",
             icon: LuSparkles,
           },
         ]}
@@ -26,10 +25,10 @@ describe("TopicsSection", () => {
     expect(
       screen.getByRole("heading", { name: "Topics We Discuss" }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole("link", { name: "AI tooling" }),
-    ).toBeInTheDocument();
+    expect(screen.getByText("AI tooling")).toBeInTheDocument();
     expect(screen.getByText("Design systems")).toBeInTheDocument();
+    expect(screen.getByText("Platform engineering")).toBeInTheDocument();
+    expect(screen.queryByRole("link")).not.toBeInTheDocument();
   });
 
   it("supports custom copy", () => {

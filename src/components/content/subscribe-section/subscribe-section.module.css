@@ -22,7 +22,7 @@
   }
 }
 
-@media (min-width: 90em) {
+@media (min-width: 64.0625em) {
   .subscribe-section {
     padding-block: 64px;
   }

@@ -109,8 +109,8 @@ When root font size increases, title, line-height, and gaps grow together.
 **Breakpoints in em (÷ 16):**
 
 ```css
-/* 768px → 48em, 1439px → 89.9375em */
-@media (min-width: 48em) and (max-width: 89.9375em) {
+/* 768px → 48em, 1024px → 64em */
+@media (min-width: 48em) and (max-width: 64em) {
   :root {
     --content-padding-inline: 24px;
   }

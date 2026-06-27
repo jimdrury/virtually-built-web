@@ -37,7 +37,7 @@
   }
 }
 
-@media (min-width: 90em) {
+@media (min-width: 64.0625em) {
   .recent-conversations-section__inner {
     gap: 32px;
   }

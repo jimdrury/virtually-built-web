@@ -8,13 +8,14 @@ import {
 } from "@/components/content/platform-links";
 import { Container } from "@/components/layout/container";
 import { Text } from "@/components/ui/text";
+import { platformLinks as defaultPlatformLinks } from "@/lib/site-content";
 
 import styles from "./subscribe-section.module.css";
 
 export interface SubscribeSectionProps {
-  links: PlatformLinkItem[];
   title?: string;
   body?: string;
+  platformLinks?: PlatformLinkItem[];
   classNames?: string;
 }
 
@@ -23,9 +24,9 @@ const DEFAULT_BODY =
   "New episodes every two weeks. No spam — just the show notes and a link.";
 
 export const SubscribeSection: FC<SubscribeSectionProps> = ({
-  links,
   title = DEFAULT_TITLE,
   body = DEFAULT_BODY,
+  platformLinks = defaultPlatformLinks,
   classNames,
 }) => {
   const titleId = useId();
@@ -47,7 +48,7 @@ export const SubscribeSection: FC<SubscribeSectionProps> = ({
         <Text variant="body" tone="muted" align="center" balance>
           {body}
         </Text>
-        <PlatformLinks links={links} />
+        <PlatformLinks links={platformLinks} />
       </Container>
     </section>
   );

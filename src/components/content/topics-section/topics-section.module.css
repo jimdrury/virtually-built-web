@@ -23,14 +23,13 @@
   }
 
   .topics-section__list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 10px;
-    justify-items: start;
   }
 }
 
-@media (min-width: 90em) {
+@media (min-width: 64.0625em) {
   .topics-section__inner {
     gap: 24px;
   }

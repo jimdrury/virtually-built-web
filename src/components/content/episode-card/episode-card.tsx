@@ -49,7 +49,7 @@ export const EpisodeCard: FC<EpisodeCardProps> = ({
           src={imageSrc}
           alt={imageAlt}
           fill
-          sizes="(max-width: 47.9375em) 100vw, (max-width: 89.9375em) 50vw, 25vw"
+          sizes="(max-width: 47.9375em) 100vw, (max-width: 64em) 50vw, 25vw"
           className={styles["episode-card__image"]}
         />
         {showVideoBadge ? (

@@ -34,7 +34,7 @@
   padding-block: 32px;
 }
 
-@media (min-width: 48em) and (max-width: 89.9375em) {
+@media (min-width: 48em) and (max-width: 64em) {
   .section--padding-default,
   .section--padding-large {
     padding-block: 48px;
@@ -45,7 +45,7 @@
   }
 }
 
-@media (min-width: 90em) {
+@media (min-width: 64.0625em) {
   .section--padding-default,
   .section--padding-compact {
     padding-block: 64px;

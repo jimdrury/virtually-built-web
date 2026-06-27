@@ -4192,7 +4192,7 @@
           "id": "cMM4M",
           "name": "Topic Pill/Desktop",
           "reusable": true,
-          "cornerRadius": 16,
+          "cornerRadius": 9999,
           "stroke": "$f:--border",
           "strokeWidth": 1,
           "strokeAlignment": "inner",
@@ -4221,7 +4221,7 @@
           "name": "Topic Pill/Mobile",
           "reusable": true,
           "width": 360,
-          "cornerRadius": 16,
+          "cornerRadius": 9999,
           "stroke": "$f:--border",
           "strokeWidth": 1,
           "strokeAlignment": "inner",
@@ -6959,23 +6959,29 @@
                   "gap": 12,
                   "children": [
                     {
-                      "id": "ui5Xa",
+                      "id": "oeE1w",
                       "type": "ref",
-                      "ref": "cMM4M",
+                      "ref": "m1Yprc",
                       "name": "Topic 1",
                       "descendants": {
-                        "p5RKH": {
+                        "Lrg2i": {
+                          "icon": "sparkles"
+                        },
+                        "kznqK": {
                           "content": "Building with AI"
                         }
                       }
                     },
                     {
-                      "id": "o5OQO",
+                      "id": "OoEVz",
                       "type": "ref",
-                      "ref": "cMM4M",
+                      "ref": "m1Yprc",
                       "name": "Topic 2",
                       "descendants": {
-                        "p5RKH": {
+                        "Lrg2i": {
+                          "icon": "bot"
+                        },
+                        "kznqK": {
                           "content": "Agent Frameworks"
                         }
                       }
@@ -6990,23 +6996,29 @@
                   "gap": 12,
                   "children": [
                     {
-                      "id": "aJjpL",
+                      "id": "ACwBN",
                       "type": "ref",
-                      "ref": "cMM4M",
+                      "ref": "m1Yprc",
                       "name": "Topic 3",
                       "descendants": {
-                        "p5RKH": {
+                        "Lrg2i": {
+                          "icon": "layers"
+                        },
+                        "kznqK": {
                           "content": "Google's Agentic Offerings"
                         }
                       }
                     },
                     {
-                      "id": "oaBjY",
+                      "id": "kuYXW",
                       "type": "ref",
-                      "ref": "cMM4M",
+                      "ref": "m1Yprc",
                       "name": "Topic 4",
                       "descendants": {
-                        "p5RKH": {
+                        "Lrg2i": {
+                          "icon": "boxes"
+                        },
+                        "kznqK": {
                           "content": "Different Models and Modalities"
                         }
                       }
@@ -8382,6 +8394,185 @@
           "width": 1440,
           "height": 900,
           "name": "Site Nav Menu Overlay"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "m1Yprc",
+      "x": 408,
+      "y": 5450,
+      "name": "Topic Pill/With Icon/Desktop",
+      "reusable": true,
+      "cornerRadius": 9999,
+      "stroke": "#e5e5e5",
+      "strokeWidth": 1,
+      "strokeAlignment": "inner",
+      "gap": 6,
+      "padding": 8,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Kec14",
+          "name": "Icon Badge",
+          "width": 24,
+          "height": 24,
+          "fill": "#171717",
+          "cornerRadius": 12,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "Lrg2i",
+              "name": "Topic Icon",
+              "width": 12,
+              "height": 12,
+              "icon": "sparkles",
+              "library": "lucide",
+              "fill": "#ffffff"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "kznqK",
+          "name": "Topic Label",
+          "fill": "#0a0a0a",
+          "content": "Building with AI",
+          "fontFamily": "Geist",
+          "fontSize": 13,
+          "fontWeight": "500"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "KF7i2",
+      "x": 1488,
+      "y": 5450,
+      "name": "Topic Pill/With Icon/Mobile",
+      "reusable": true,
+      "width": 360,
+      "cornerRadius": 9999,
+      "stroke": "#e5e5e5",
+      "strokeWidth": 1,
+      "strokeAlignment": "inner",
+      "gap": 6,
+      "padding": 8,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Q1e0Lf",
+          "name": "Icon Badge",
+          "width": 22,
+          "height": 22,
+          "fill": "#171717",
+          "cornerRadius": 11,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "fwzmw",
+              "name": "Topic Icon",
+              "width": 11,
+              "height": 11,
+              "icon": "sparkles",
+              "library": "lucide",
+              "fill": "#ffffff"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "XgupT",
+          "name": "Topic Label",
+          "fill": "#0a0a0a",
+          "content": "Building with AI",
+          "fontFamily": "Geist",
+          "fontSize": 12,
+          "fontWeight": "500"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "F0BuWG",
+      "x": 408,
+      "y": 6148,
+      "name": "Topic Pill/With Icon/Showcase",
+      "layout": "vertical",
+      "gap": 12,
+      "children": [
+        {
+          "type": "frame",
+          "id": "Kg8mN",
+          "name": "Desktop Row",
+          "gap": 12,
+          "alignItems": "center",
+          "children": [
+            {
+              "id": "l6Qj1",
+              "type": "ref",
+              "ref": "m1Yprc",
+              "name": "Topic AI",
+              "descendants": {
+                "Lrg2i": {
+                  "icon": "sparkles"
+                },
+                "kznqK": {
+                  "content": "Building with AI"
+                }
+              }
+            },
+            {
+              "id": "C96nJa",
+              "type": "ref",
+              "ref": "m1Yprc",
+              "name": "Topic Frameworks",
+              "descendants": {
+                "Lrg2i": {
+                  "icon": "bot"
+                },
+                "kznqK": {
+                  "content": "Agent Frameworks"
+                }
+              }
+            },
+            {
+              "id": "EInCY",
+              "type": "ref",
+              "ref": "m1Yprc",
+              "name": "Topic Google",
+              "descendants": {
+                "Lrg2i": {
+                  "icon": "layers"
+                },
+                "kznqK": {
+                  "content": "Google's Agentic Offerings"
+                }
+              }
+            },
+            {
+              "id": "J5Ed9W",
+              "type": "ref",
+              "ref": "m1Yprc",
+              "name": "Topic Models",
+              "descendants": {
+                "Lrg2i": {
+                  "icon": "boxes"
+                },
+                "kznqK": {
+                  "content": "Different Models and Modalities"
+                }
+              }
+            }
+          ]
         }
       ]
     }

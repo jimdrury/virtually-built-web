@@ -16,6 +16,7 @@ export interface HeroTeaserProps {
   imageSrc: string;
   imageAlt: string;
   episodeHref: string;
+  priority?: boolean;
   classNames?: string;
 }
 
@@ -28,6 +29,7 @@ export const HeroTeaser: FC<HeroTeaserProps> = ({
   imageSrc,
   imageAlt,
   episodeHref,
+  priority = false,
   classNames,
 }) => {
   const titleId = useId();
@@ -42,7 +44,10 @@ export const HeroTeaser: FC<HeroTeaserProps> = ({
           src={imageSrc}
           alt={imageAlt}
           fill
-          sizes="(max-width: 47.9375em) 100vw, (max-width: 89.9375em) 300px, 480px"
+          loading={priority ? "eager" : undefined}
+          fetchPriority={priority ? "high" : undefined}
+          quality={priority ? 80 : undefined}
+          sizes="(max-width: 47.9375em) 100vw, (max-width: 64em) 300px, 480px"
           className={styles["hero-teaser__image"]}
         />
         <span className={styles["hero-teaser__video-badge"]}>
@@ -87,10 +92,6 @@ export const HeroTeaser: FC<HeroTeaserProps> = ({
             {publishedAt} · {duration}
           </p>
         </div>
-
-        <p className={styles["hero-teaser__meta-inline"]}>
-          {publishedAt} · with {guestName} · {duration}
-        </p>
 
         <Link href={episodeHref} className={styles["hero-teaser__link"]}>
           <MdPlayArrow

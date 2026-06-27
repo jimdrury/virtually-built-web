@@ -69,7 +69,7 @@
   --type-ui-weight: 500;
 }
 
-@media (min-width: 48em) and (max-width: 89.9375em) {
+@media (min-width: 48em) and (max-width: 64em) {
   :root {
     --site-padding-inline: 24px;
 

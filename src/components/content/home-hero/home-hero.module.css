@@ -48,7 +48,7 @@
   flex-shrink: 0;
 }
 
-@media (min-width: 48em) and (max-width: 89.9375em) {
+@media (min-width: 48em) and (max-width: 64em) {
   .home-hero__badge {
     font-size: 0.6875rem;
   }
@@ -75,7 +75,7 @@
   }
 }
 
-@media (min-width: 90em) {
+@media (min-width: 64.0625em) {
   .home-hero__grid {
     flex-direction: row;
     align-items: center;

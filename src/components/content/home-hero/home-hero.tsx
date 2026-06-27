@@ -100,6 +100,7 @@ export const HomeHero: FC<HomeHeroProps> = ({
 
       <HeroTeaser
         {...featuredEpisode}
+        priority
         classNames={styles["home-hero__featured"]}
       />
     </div>

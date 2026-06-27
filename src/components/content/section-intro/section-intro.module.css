@@ -39,7 +39,7 @@
   }
 }
 
-@media (min-width: 90em) {
+@media (min-width: 64.0625em) {
   .section-intro__title {
     font-size: 2rem;
     letter-spacing: -0.03125rem;
@@ -62,7 +62,7 @@
   }
 }
 
-@media (min-width: 90em) {
+@media (min-width: 64.0625em) {
   .section-intro__body {
     font-size: 1rem;
   }

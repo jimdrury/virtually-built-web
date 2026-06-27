@@ -14,7 +14,7 @@ describe("HeroTeaser", () => {
       screen.getByRole("heading", { name: "Design systems at scale" }),
     ).toBeInTheDocument();
     expect(screen.getByText("Latest video episode")).toBeInTheDocument();
-    expect(screen.getAllByText(/with Sam Rivera/)).toHaveLength(2);
+    expect(screen.getByText(/with Sam Rivera/)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /Play episode/i })).toHaveAttribute(
       "href",
       sampleFeaturedEpisode.episodeHref,

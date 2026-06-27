@@ -1,3 +1,4 @@
+import { LuBoxes, LuSparkles } from "react-icons/lu";
 import type { EpisodeSummary } from "@/components/content/episode-card";
 import type { HeroTeaserProps } from "@/components/content/hero-teaser";
 import type { HomeHeroProps } from "@/components/content/home-hero";
@@ -62,6 +63,6 @@ export const samplePlatformLinks: PlatformLinkItem[] = [
 ];
 
 export const sampleTopics: TopicItem[] = [
-  { label: "AI tooling", href: "/topics/ai-tooling" },
-  { label: "Design systems" },
+  { label: "AI tooling", icon: LuSparkles },
+  { label: "Design systems", icon: LuBoxes },
 ];

@@ -28,7 +28,7 @@
   padding: 8px 14px;
 }
 
-@media (min-width: 90em) {
+@media (min-width: 64.0625em) {
   .topic-pill--icon-desktop-only {
     padding: 8px;
   }
@@ -36,6 +36,7 @@
 
 .topic-pill--full-width {
   width: 100%;
+  justify-content: flex-start;
 }
 
 @media (min-width: 48em) {
@@ -61,7 +62,7 @@
   background: var(--primary);
 }
 
-@media (max-width: 89.9375em) {
+@media (max-width: 64em) {
   .topic-pill__icon-badge--desktop-only {
     display: none;
   }
