@@ -8,16 +8,29 @@
 }
 
 .episode-card__link {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.episode-card__link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 8px;
 }
 
 .episode-card__link:focus-visible {
   outline: var(--focus-outline);
   outline-offset: var(--focus-outline-offset);
+}
+
+.episode-card__link:focus-visible::before {
   box-shadow: var(--focus-shadow);
 }
 
@@ -117,6 +130,8 @@
 }
 
 .episode-card__play-icon {
+  position: relative;
+  z-index: 2;
   flex-shrink: 0;
   width: 12px;
   height: 12px;

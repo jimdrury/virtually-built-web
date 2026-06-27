@@ -2,6 +2,7 @@ import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import type { ComponentProps, FC } from "react";
+import { useId } from "react";
 import { LuPlay } from "react-icons/lu";
 import { MdVideocam } from "react-icons/md";
 
@@ -34,16 +35,14 @@ export const EpisodeCard: FC<EpisodeCardProps> = ({
   href,
   showVideoBadge = false,
   classNames,
-}) => (
-  <article
-    className={clsx(
-      {
-        [styles["episode-card"]]: true,
-      },
-      classNames,
-    )}
-  >
-    <Link href={href} className={styles["episode-card__link"]}>
+}) => {
+  const titleId = useId();
+
+  return (
+    <article
+      className={clsx(styles["episode-card"], classNames)}
+      aria-labelledby={titleId}
+    >
       <div className={styles["episode-card__thumbnail"]}>
         <Image
           src={imageSrc}
@@ -67,7 +66,9 @@ export const EpisodeCard: FC<EpisodeCardProps> = ({
 
       <div className={styles["episode-card__body"]}>
         <p className={styles["episode-card__number"]}>{number}</p>
-        <h3 className={styles["episode-card__title"]}>{title}</h3>
+        <h3 className={styles["episode-card__title"]} id={titleId}>
+          {title}
+        </h3>
         <p className={styles["episode-card__guest"]}>{guestName}</p>
       </div>
 
@@ -75,12 +76,14 @@ export const EpisodeCard: FC<EpisodeCardProps> = ({
         <p className={styles["episode-card__meta"]}>
           {publishedAt} · {duration}
         </p>
-        <LuPlay aria-hidden className={styles["episode-card__play-icon"]} />
+        <Link href={href} className={styles["episode-card__link"]}>
+          <LuPlay aria-hidden className={styles["episode-card__play-icon"]} />
+          <span className="sr-only">
+            Episode {number}: {title}, with {guestName}, {publishedAt},{" "}
+            {duration}
+          </span>
+        </Link>
       </div>
-
-      <span className="sr-only">
-        Episode {number}: {title}, with {guestName}, {publishedAt}, {duration}
-      </span>
-    </Link>
-  </article>
-);
+    </article>
+  );
+};
