@@ -1,0 +1,57 @@
+.section {
+  width: 100%;
+}
+
+.section--white {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+.section--black {
+  color: var(--primary-foreground);
+  background: var(--foreground);
+}
+
+.section--grey {
+  color: var(--foreground);
+  background: #f5f5f5;
+  border-block: 1px solid var(--border);
+}
+
+.section--padding-none {
+  padding-block: 0;
+}
+
+.section--padding-default {
+  padding-block: 40px;
+}
+
+.section--padding-large {
+  padding-block: 40px;
+}
+
+.section--padding-compact {
+  padding-block: 32px;
+}
+
+@media (min-width: 48em) and (max-width: 89.9375em) {
+  .section--padding-default,
+  .section--padding-large {
+    padding-block: 48px;
+  }
+
+  .section--padding-compact {
+    padding-block: 40px;
+  }
+}
+
+@media (min-width: 90em) {
+  .section--padding-default,
+  .section--padding-compact {
+    padding-block: 64px;
+  }
+
+  .section--padding-large {
+    padding-block: 80px;
+  }
+}

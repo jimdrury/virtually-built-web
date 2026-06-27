@@ -23,7 +23,12 @@
           "type": "ref",
           "ref": "SND5p",
           "name": "Hero",
-          "width": "fill_container"
+          "width": "fill_container",
+          "descendants": {
+            "PHkCg": {
+              "content": "Ideas that shape what we \nbuild next."
+            }
+          }
         },
         {
           "id": "yn21i",
@@ -2408,7 +2413,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "./images/generated-1782494760264.png",
+                "url": "images/generated-1782494760264.png",
                 "mode": "fill"
               },
               "layout": "none",
@@ -2592,7 +2597,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "./images/generated-1782494761395.png",
+                "url": "images/generated-1782494761395.png",
                 "mode": "fill"
               },
               "layout": "none",
@@ -2741,7 +2746,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "./images/generated-1782494764136.png",
+                "url": "images/generated-1782494764136.png",
                 "mode": "fill"
               },
               "layout": "none",
@@ -2886,15 +2891,27 @@
           "alignItems": "center",
           "children": [
             {
-              "id": "a2SbNR",
-              "type": "ref",
-              "ref": "HmQBB",
-              "name": "Logo Row"
+              "type": "frame",
+              "id": "Q7V4Hf",
+              "name": "Left Cluster",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "a2SbNR",
+                  "type": "ref",
+                  "ref": "HmQBB",
+                  "name": "Logo Row"
+                }
+              ]
             },
             {
               "type": "frame",
               "id": "vbdnt",
+              "x": 459.3333333333333,
+              "y": 14,
               "name": "Nav Links",
+              "enabled": false,
               "gap": 4,
               "alignItems": "center",
               "children": [
@@ -2940,17 +2957,36 @@
               ]
             },
             {
-              "id": "J4ybr9",
-              "type": "ref",
-              "ref": "f:VSnC2",
-              "descendants": {
-                "f:8jVfJ": {
-                  "enabled": false
+              "type": "frame",
+              "id": "ZWsE6",
+              "name": "Right Cluster",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "J4ybr9",
+                  "type": "ref",
+                  "ref": "f:VSnC2",
+                  "descendants": {
+                    "f:8jVfJ": {
+                      "enabled": false
+                    },
+                    "f:8tnXG": {
+                      "content": "Subscribe"
+                    }
+                  }
                 },
-                "f:8tnXG": {
-                  "content": "Subscribe"
+                {
+                  "type": "icon",
+                  "id": "PSxnT",
+                  "name": "Menu Icon",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "menu",
+                  "library": "lucide",
+                  "fill": "$f:--foreground"
                 }
-              }
+              ]
             }
           ]
         },
@@ -3040,23 +3076,51 @@
           "alignItems": "center",
           "children": [
             {
-              "id": "NYYkz",
-              "type": "ref",
-              "ref": "WkjF2",
-              "name": "Logo Row"
+              "type": "frame",
+              "id": "gD4s2",
+              "name": "Left Cluster",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "NYYkz",
+                  "type": "ref",
+                  "ref": "WkjF2",
+                  "name": "Logo Row"
+                }
+              ]
             },
             {
-              "id": "mFF75",
-              "type": "ref",
-              "ref": "f:VSnC2",
-              "descendants": {
-                "f:8jVfJ": {
-                  "enabled": false
+              "type": "frame",
+              "id": "p3nhX",
+              "name": "Right Cluster",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "mFF75",
+                  "type": "ref",
+                  "ref": "f:VSnC2",
+                  "descendants": {
+                    "f:8jVfJ": {
+                      "enabled": false
+                    },
+                    "f:8tnXG": {
+                      "content": "Subscribe"
+                    }
+                  }
                 },
-                "f:8tnXG": {
-                  "content": "Subscribe"
+                {
+                  "type": "icon",
+                  "id": "Sapl8",
+                  "name": "Menu Icon",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "menu",
+                  "library": "lucide",
+                  "fill": "$f:--foreground"
                 }
-              }
+              ]
             }
           ]
         },
@@ -3243,15 +3307,27 @@
           "alignItems": "center",
           "children": [
             {
-              "id": "VY5FD",
-              "type": "ref",
-              "ref": "E0fZf0",
-              "name": "Logo Row"
+              "type": "frame",
+              "id": "eSEMG",
+              "name": "Left Cluster",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "VY5FD",
+                  "type": "ref",
+                  "ref": "E0fZf0",
+                  "name": "Logo Row"
+                }
+              ]
             },
             {
               "type": "frame",
               "id": "H7cKeM",
+              "x": 459.3333333333333,
+              "y": 14,
               "name": "Nav Links",
+              "enabled": false,
               "gap": 4,
               "alignItems": "center",
               "children": [
@@ -3300,17 +3376,36 @@
               ]
             },
             {
-              "id": "nEfZB",
-              "type": "ref",
-              "ref": "f:VSnC2",
-              "descendants": {
-                "f:8jVfJ": {
-                  "enabled": false
+              "type": "frame",
+              "id": "oawWt",
+              "name": "Right Cluster",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "nEfZB",
+                  "type": "ref",
+                  "ref": "f:VSnC2",
+                  "descendants": {
+                    "f:8jVfJ": {
+                      "enabled": false
+                    },
+                    "f:8tnXG": {
+                      "content": "Subscribe"
+                    }
+                  }
                 },
-                "f:8tnXG": {
-                  "content": "Subscribe"
+                {
+                  "type": "icon",
+                  "id": "AoTbf",
+                  "name": "Menu Icon",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "menu",
+                  "library": "lucide",
+                  "fill": "#fafafa"
                 }
-              }
+              ]
             }
           ]
         },
@@ -3334,10 +3429,19 @@
           "alignItems": "center",
           "children": [
             {
-              "id": "Mae1n",
-              "type": "ref",
-              "ref": "E0fZf0",
-              "name": "Logo Row"
+              "type": "frame",
+              "id": "ZUjYP",
+              "name": "Left Cluster",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "Mae1n",
+                  "type": "ref",
+                  "ref": "E0fZf0",
+                  "name": "Logo Row"
+                }
+              ]
             },
             {
               "type": "frame",
@@ -3394,17 +3498,36 @@
               ]
             },
             {
-              "id": "e0QGbz",
-              "type": "ref",
-              "ref": "f:VSnC2",
-              "descendants": {
-                "f:8jVfJ": {
-                  "enabled": false
+              "type": "frame",
+              "id": "b0nWj",
+              "name": "Right Cluster",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "e0QGbz",
+                  "type": "ref",
+                  "ref": "f:VSnC2",
+                  "descendants": {
+                    "f:8jVfJ": {
+                      "enabled": false
+                    },
+                    "f:8tnXG": {
+                      "content": "Subscribe"
+                    }
+                  }
                 },
-                "f:8tnXG": {
-                  "content": "Subscribe"
+                {
+                  "type": "icon",
+                  "id": "D8mPD1",
+                  "name": "Menu Icon",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "menu",
+                  "library": "lucide",
+                  "fill": "#fafafa"
                 }
-              }
+              ]
             }
           ]
         },
@@ -6390,6 +6513,35 @@
                       "content": "3 Jun 2026 · 44 min"
                     }
                   }
+                },
+                {
+                  "id": "yyrSd",
+                  "type": "ref",
+                  "ref": "ZUek2",
+                  "name": "Episode Card 044",
+                  "width": "fill_container",
+                  "descendants": {
+                    "UOrmR": {
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "images/generated-1782494760264.png",
+                        "mode": "fill"
+                      }
+                    },
+                    "HJHyQ": {
+                      "content": "044"
+                    },
+                    "PaDR0": {
+                      "content": "Observability without the overhead"
+                    },
+                    "p14gA": {
+                      "content": "Priya Sharma"
+                    },
+                    "e4n8H": {
+                      "content": "27 May 2026 · 41 min"
+                    }
+                  }
                 }
               ]
             }
@@ -6421,71 +6573,154 @@
               "id": "l1OpL",
               "name": "Episode Grid",
               "width": "fill_container",
+              "layout": "vertical",
               "gap": 12,
               "children": [
                 {
-                  "id": "ytQi2",
-                  "type": "ref",
-                  "ref": "jQfDw",
-                  "name": "Episode Card 047",
+                  "type": "frame",
+                  "id": "ddJeM",
+                  "name": "Episode Row 1",
                   "width": "fill_container",
-                  "descendants": {
-                    "spTJj": {
-                      "fill": {
-                        "type": "image",
-                        "enabled": true,
-                        "url": "images/generated-1782494761395.png",
-                        "mode": "fill"
+                  "gap": 12,
+                  "children": [
+                    {
+                      "id": "ytQi2",
+                      "type": "ref",
+                      "ref": "jQfDw",
+                      "name": "Episode Card 047",
+                      "width": "fill_container",
+                      "descendants": {
+                        "spTJj": {
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "images/generated-1782494761395.png",
+                            "mode": "fill"
+                          }
+                        },
+                        "UwUje": {
+                          "enabled": false
+                        },
+                        "r9JvUV": {
+                          "content": "047"
+                        },
+                        "g6ZqFu": {
+                          "content": "Why local-first still matters"
+                        },
+                        "nRCh2": {
+                          "content": "Marcus Webb"
+                        },
+                        "kdMuA": {
+                          "content": "17 Jun 2026 · 38 min"
+                        }
                       }
                     },
-                    "UwUje": {
-                      "enabled": false
-                    },
-                    "r9JvUV": {
-                      "content": "047"
-                    },
-                    "g6ZqFu": {
-                      "content": "Why local-first still matters"
-                    },
-                    "nRCh2": {
-                      "content": "Marcus Webb"
-                    },
-                    "kdMuA": {
-                      "content": "17 Jun 2026 · 38 min"
+                    {
+                      "id": "JA9N9",
+                      "type": "ref",
+                      "ref": "jQfDw",
+                      "name": "Episode Card 046",
+                      "width": "fill_container",
+                      "descendants": {
+                        "spTJj": {
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "images/generated-1782494764136.png",
+                            "mode": "fill"
+                          }
+                        },
+                        "UwUje": {
+                          "enabled": false
+                        },
+                        "r9JvUV": {
+                          "content": "046"
+                        },
+                        "g6ZqFu": {
+                          "content": "The craft of incremental delivery"
+                        },
+                        "nRCh2": {
+                          "content": "Elena Torres"
+                        },
+                        "kdMuA": {
+                          "content": "10 Jun 2026 · 52 min"
+                        }
+                      }
                     }
-                  }
+                  ]
                 },
                 {
-                  "id": "JA9N9",
-                  "type": "ref",
-                  "ref": "jQfDw",
-                  "name": "Episode Card 046",
+                  "type": "frame",
+                  "id": "R3jZ4",
+                  "name": "Episode Row 2",
                   "width": "fill_container",
-                  "descendants": {
-                    "spTJj": {
-                      "fill": {
-                        "type": "image",
-                        "enabled": true,
-                        "url": "images/generated-1782494764136.png",
-                        "mode": "fill"
+                  "gap": 12,
+                  "children": [
+                    {
+                      "id": "pDEuH",
+                      "type": "ref",
+                      "ref": "jQfDw",
+                      "name": "Episode Card 045",
+                      "width": "fill_container",
+                      "descendants": {
+                        "spTJj": {
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1648522168784-067e98df88c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODI0OTUzMzB8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          }
+                        },
+                        "UwUje": {
+                          "enabled": false
+                        },
+                        "r9JvUV": {
+                          "content": "045"
+                        },
+                        "g6ZqFu": {
+                          "content": "Platform teams without bottlenecks"
+                        },
+                        "nRCh2": {
+                          "content": "James Okonkwo"
+                        },
+                        "kdMuA": {
+                          "content": "3 Jun 2026 · 44 min"
+                        }
                       }
                     },
-                    "UwUje": {
-                      "enabled": false
-                    },
-                    "r9JvUV": {
-                      "content": "046"
-                    },
-                    "g6ZqFu": {
-                      "content": "The craft of incremental delivery"
-                    },
-                    "nRCh2": {
-                      "content": "Elena Torres"
-                    },
-                    "kdMuA": {
-                      "content": "10 Jun 2026 · 52 min"
+                    {
+                      "id": "MPAjX",
+                      "type": "ref",
+                      "ref": "jQfDw",
+                      "name": "Episode Card 044",
+                      "width": "fill_container",
+                      "descendants": {
+                        "spTJj": {
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "images/generated-1782494760264.png",
+                            "mode": "fill"
+                          }
+                        },
+                        "UwUje": {
+                          "enabled": false
+                        },
+                        "r9JvUV": {
+                          "content": "044"
+                        },
+                        "g6ZqFu": {
+                          "content": "Observability without the overhead"
+                        },
+                        "nRCh2": {
+                          "content": "Priya Sharma"
+                        },
+                        "kdMuA": {
+                          "content": "27 May 2026 · 41 min"
+                        }
+                      }
                     }
-                  }
+                  ]
                 }
               ]
             }
@@ -6613,6 +6848,38 @@
                     },
                     "CBI4k": {
                       "content": "3 Jun 2026 · 44 min"
+                    }
+                  }
+                },
+                {
+                  "id": "eJ81f",
+                  "type": "ref",
+                  "ref": "J8hf9l",
+                  "name": "Episode Card 044",
+                  "width": "fill_container",
+                  "descendants": {
+                    "dRnUd": {
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "images/generated-1782494760264.png",
+                        "mode": "fill"
+                      }
+                    },
+                    "gVq1a": {
+                      "enabled": true
+                    },
+                    "pprLe": {
+                      "content": "044"
+                    },
+                    "s9hY8": {
+                      "content": "Observability without the overhead"
+                    },
+                    "tLLXe": {
+                      "content": "Priya Sharma"
+                    },
+                    "CBI4k": {
+                      "content": "27 May 2026 · 41 min"
                     }
                   }
                 }
@@ -7819,6 +8086,302 @@
               ]
             }
           ]
+        },
+        {
+          "type": "frame",
+          "id": "OZzJ5",
+          "name": "SiteNavMenu/Drawer/Light",
+          "reusable": true,
+          "width": 320,
+          "height": 900,
+          "fill": "$f:--background",
+          "stroke": "$f:--border",
+          "strokeWidth": {
+            "right": 1
+          },
+          "strokeAlignment": "inner",
+          "layout": "vertical",
+          "padding": [
+            0,
+            24,
+            32,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "R9NaQR",
+              "name": "Drawer Header",
+              "width": "fill_container",
+              "stroke": "$f:--border",
+              "strokeWidth": {
+                "bottom": 1
+              },
+              "strokeAlignment": "inner",
+              "padding": [
+                16,
+                0
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "S8sCrJ",
+                  "type": "ref",
+                  "ref": "HmQBB",
+                  "name": "Logo"
+                },
+                {
+                  "type": "frame",
+                  "id": "zYnLu",
+                  "name": "Close Button",
+                  "cornerRadius": 6,
+                  "padding": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "b7cNg3",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "x",
+                      "library": "lucide",
+                      "fill": "$f:--foreground"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "wGa0s",
+              "name": "Nav Links",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                24,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "SIruU",
+                  "name": "SiteNavMenu/NavItem/Default",
+                  "reusable": true,
+                  "width": "fill_container",
+                  "padding": [
+                    12,
+                    0
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "PUnok",
+                      "name": "Label",
+                      "fill": "$f:--muted-foreground",
+                      "content": "Episodes",
+                      "fontFamily": "Geist",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "xO6Mu",
+                  "width": "fill_container",
+                  "padding": [
+                    12,
+                    0
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "HpC0Y",
+                      "name": "Label",
+                      "fill": "$f:--muted-foreground",
+                      "content": "About",
+                      "fontFamily": "Geist",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "cat70",
+                  "width": "fill_container",
+                  "padding": [
+                    12,
+                    0
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "uSyDM",
+                      "name": "Label",
+                      "fill": "$f:--muted-foreground",
+                      "content": "Guests",
+                      "fontFamily": "Geist",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "y4f4Fc",
+              "name": "Divider",
+              "width": "fill_container",
+              "height": 1,
+              "fill": "$f:--border"
+            },
+            {
+              "id": "ZPWDu",
+              "type": "ref",
+              "ref": "f:VSnC2",
+              "width": "fill_container",
+              "descendants": {
+                "f:8jVfJ": {
+                  "enabled": false
+                },
+                "f:8tnXG": {
+                  "content": "Subscribe"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "MNILH",
+      "x": 5354,
+      "y": 0,
+      "name": "SiteNavMenu/Overlay",
+      "reusable": true,
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "DqIbQ",
+          "x": 0,
+          "y": 0,
+          "name": "Scrim",
+          "width": 1440,
+          "height": 900,
+          "fill": "#00000066"
+        },
+        {
+          "id": "yGVR1",
+          "type": "ref",
+          "ref": "OZzJ5",
+          "x": 0,
+          "y": 0,
+          "height": 900,
+          "name": "Drawer"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "tQQYU",
+      "x": 0,
+      "y": 5200,
+      "name": "Virtually Built — Desktop (Menu Open)",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "$f:--background",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "MlnZP",
+          "x": 0,
+          "y": 0,
+          "name": "Homepage Content",
+          "clip": true,
+          "width": 1440,
+          "height": 900,
+          "fill": "$f:--background",
+          "layout": "vertical",
+          "children": [
+            {
+              "id": "oYjV3",
+              "type": "ref",
+              "ref": "TxJlm",
+              "width": "fill_container"
+            },
+            {
+              "id": "memdh",
+              "type": "ref",
+              "ref": "SND5p",
+              "name": "Hero",
+              "width": "fill_container",
+              "descendants": {
+                "PHkCg": {
+                  "content": "Ideas that shape what we \nbuild next."
+                }
+              }
+            },
+            {
+              "id": "l0JcL4",
+              "type": "ref",
+              "ref": "GZhJ7",
+              "name": "Episodes Section",
+              "width": "fill_container"
+            },
+            {
+              "id": "KZIO5",
+              "type": "ref",
+              "ref": "emACO",
+              "name": "Topics Section",
+              "width": "fill_container"
+            },
+            {
+              "id": "EtBZv",
+              "type": "ref",
+              "ref": "U5yff",
+              "name": "About Section",
+              "width": "fill_container"
+            },
+            {
+              "id": "NXfNx",
+              "type": "ref",
+              "ref": "QpR0K",
+              "width": "fill_container"
+            },
+            {
+              "id": "C1PPp",
+              "type": "ref",
+              "ref": "S1C2z",
+              "width": "fill_container"
+            }
+          ]
+        },
+        {
+          "id": "O0MGbS",
+          "type": "ref",
+          "ref": "MNILH",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 900,
+          "name": "Site Nav Menu Overlay"
         }
       ]
     }

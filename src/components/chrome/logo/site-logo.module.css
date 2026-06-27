@@ -1,0 +1,166 @@
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+  color: #0a0a0a;
+  border-radius: 4px;
+}
+
+.site-logo:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+  box-shadow: var(--focus-shadow);
+}
+
+.site-logo--dark {
+  color: #fafafa;
+}
+
+.site-logo--footer {
+  gap: 8px;
+}
+
+.site-logo__mark--footer {
+  width: 22px;
+  height: 22px;
+}
+
+.site-logo__text--footer {
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+}
+
+.site-logo__mark--footer-mobile {
+  width: 20px;
+  height: 20px;
+}
+
+.site-logo__text--footer-mobile {
+  font-size: 0.75rem;
+  letter-spacing: 0;
+}
+
+.site-logo--tablet {
+  gap: 0.5rem;
+}
+
+.site-logo--mobile {
+  gap: 0.5rem;
+}
+
+.site-logo__mark {
+  width: 1.75rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+}
+
+.site-logo__text {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01875rem;
+  line-height: 1;
+}
+
+.site-logo__mark--tablet {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.site-logo__mark--mobile {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+
+.site-logo__mark--desktop {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.site-logo__text--tablet {
+  font-size: 0.875rem;
+  letter-spacing: 0;
+}
+
+.site-logo__text--mobile {
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+}
+
+.site-logo__text--desktop {
+  font-size: 0.9375rem;
+  letter-spacing: -0.01875rem;
+}
+
+@media (min-width: 48em) and (max-width: 89.9375em) {
+  .site-logo {
+    gap: 0.5rem;
+  }
+
+  .site-logo__mark {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .site-logo__text {
+    font-size: 0.875rem;
+    letter-spacing: 0;
+  }
+
+  .site-logo--desktop {
+    gap: 0.625rem;
+  }
+}
+
+@media (max-width: 47.9375em) {
+  .site-logo {
+    gap: 0.5rem;
+  }
+
+  .site-logo__mark {
+    width: 1.375rem;
+    height: 1.375rem;
+  }
+
+  .site-logo__text {
+    font-size: 0.8125rem;
+    letter-spacing: 0;
+  }
+
+  .site-logo--desktop {
+    gap: 0.625rem;
+  }
+}
+
+@media (min-width: 48em) and (max-width: 89.9375em) {
+  .site-logo__mark--desktop {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .site-logo__text--desktop {
+    font-size: 0.9375rem;
+    letter-spacing: -0.01875rem;
+  }
+}
+
+@media (max-width: 47.9375em) {
+  .site-logo__mark--footer {
+    width: 20px;
+    height: 20px;
+  }
+
+  .site-logo__text--footer {
+    font-size: 0.75rem;
+  }
+
+  .site-logo__mark--desktop {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .site-logo__text--desktop {
+    font-size: 0.9375rem;
+    letter-spacing: -0.01875rem;
+  }
+}

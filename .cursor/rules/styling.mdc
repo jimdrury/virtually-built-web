@@ -1,0 +1,88 @@
+---
+description: CSS modules (BEM), rem/em/px units, and clsx patterns
+globs: **/*.{module.css,css,tsx,jsx}
+alwaysApply: false
+---
+
+# Styling
+
+## CSS modules — BEM only
+
+Name every class with **BEM**. The block name matches the component (kebab-case, same as the file stem).
+
+| Part | Pattern | Example |
+|------|---------|---------|
+| Block | `.block` | `.site-header` |
+| Element | `.block__element` | `.site-header__brand` |
+| Modifier | `.block--modifier`, `.block__element--modifier` | `.site-header--dark` |
+
+Apply modifiers on the element in JSX — do not encode state with nested selectors.
+
+## Specificity 0,1,0 — classes only
+
+Every selector must be **a single BEM class** (specificity `0,1,0`).
+
+```css
+/* ✅ one class */
+.site-header__brand { display: flex; }
+
+/* ❌ element, descendant, or compound selectors */
+.hero-teaser__play svg { width: 26px; }
+.site-logo--dark .site-logo__mark { width: 1.75rem; }
+```
+
+Never target HTML elements (`svg`, `img`, `a`, etc.). Give each styled node its own BEM class. Pseudo-classes on the same class (`:hover`, `:focus-visible`) are allowed.
+
+Put modifiers on the child in TSX, not via parent selectors in CSS:
+
+```tsx
+className={clsx({
+  [styles["site-logo__mark"]]: true,
+  [styles["site-logo__mark--dark"]]: variant === "dark",
+})}
+```
+
+## Bracket notation in TSX
+
+Always access CSS module classes with **bracket notation**:
+
+```tsx
+className={styles["site-header"]}
+className={clsx({
+  [styles["site-header"]]: true,
+  [styles["site-header--dark"]]: variant === "dark",
+})}
+```
+
+## Rem vs em vs px
+
+- **`rem`** — typography: `font-size`, `line-height`, `letter-spacing`, spacing between text
+- **`em`** — media query breakpoints only (divide px by 16: `768px` → `48em`)
+- **`px`** — presentational layout: padding, margins, `border-radius`, borders, outlines
+
+Do not use `px` or `rem` in `@media` width/height conditions.
+
+Quick check: text reads → `rem`; layout reflow → `em`; box looks → `px`.
+
+## clsx
+
+One style per call: **object notation** for conditionals, **array notation** for plain concatenation. Do not mix string args with `&&` conditionals or with object notation.
+
+```tsx
+// ✅ conditionals
+className={clsx(
+  {
+    [styles["site-logo"]]: true,
+    [styles["site-logo--dark"]]: variant === "dark",
+  },
+  classNames,
+)}
+
+// ✅ concatenation only
+className={clsx([styles["site-logo"], classNames])}
+
+// ❌ && conditionals or string + object mix
+className={clsx(styles["site-logo"], variant === "dark" && styles["site-logo--dark"])}
+```
+
+When a component accepts `classNames`, pass it as a trailing argument after the object.

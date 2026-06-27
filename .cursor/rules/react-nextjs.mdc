@@ -1,0 +1,95 @@
+---
+description: React 19 and Next.js project conventions
+globs: src/**/*.{tsx,ts}
+alwaysApply: false
+---
+
+# React & Next.js
+
+Read `node_modules/next/dist/docs/` before writing Next.js code — APIs may differ from training data.
+
+For performance, data fetching, and bundle optimization, read `.agents/skills/vercel-react-best-practices/SKILL.md` on demand.
+
+## Components
+
+- Arrow functions only; use `FC<ComponentNameProps>` with `import type { FC } from "react"`
+- Props interface named `ComponentNameProps`; prefer **named exports** (`export const Button`)
+- Filenames are kebab-case (see `file-naming` rule); component exports stay PascalCase
+- Each component folder has an `index.ts` barrel; import from the folder path (e.g. `@/components/ui/button`), not the implementation file
+
+```tsx
+// ui/button/index.ts
+export { Button, type ButtonProps, type ButtonVariant } from "./button";
+
+// elsewhere
+import { Button } from "@/components/ui/button";
+```
+- Optional `classNames` prop for style extension; styling rules in `styling.mdc`
+
+```tsx
+import type { FC } from "react";
+
+export interface SiteHeaderProps {
+  variant?: "light" | "dark";
+  classNames?: string;
+}
+
+export const SiteHeader: FC<SiteHeaderProps> = ({ variant = "light", classNames }) => (
+  /* ... */
+);
+```
+
+## Server vs client
+
+- Default to Server Components
+- Add `'use client'` at top of file only for interactivity, browser APIs, or hooks
+- Extract interactive parts into small client components; compose with server parents
+- Do not use Next.js global `error.tsx` boundaries — handle errors at component level
+
+## Route files
+
+Colocate feature code under `app/` with underscore prefixes (`_components/`, `_lib/`) so folders are not routes.
+
+| File | Component name | Props type |
+|------|----------------|------------|
+| `page.tsx` | `Page` | `PageProps<'/route'>` |
+| `layout.tsx` | `Layout` | `LayoutProps<'/route'>` |
+| `not-found.tsx` | `NotFound` | — |
+| `forbidden.tsx` | `Forbidden` | — |
+| `unauthorised.tsx` | `Unauthorised` | — |
+
+```tsx
+import type { FC } from "react";
+
+const Page: FC<PageProps<"/route-path">> = async ({ params, searchParams }) => {
+  /* ... */
+};
+
+export default Page;
+```
+
+Colocate Server Actions in `actions.ts` within the feature directory. Authenticate inside each action.
+
+## Environment variables
+
+Validate `process.env` with Zod in a central `src/env.ts`; use `parse` at startup. Never use `NEXT_PUBLIC_` — all env vars are server-side. Import `env`, not `process.env`.
+
+## Middleware
+
+Next.js 16 uses `src/proxy.tsx` (not `middleware.ts`). Export a default async function receiving `NextRequest`.
+
+## Metadata
+
+- Static: export `metadata` from `layout.tsx` or `page.tsx`
+- Dynamic: export async `generateMetadata`
+- Structured data: JSON-LD via `<script type="application/ld+json">`
+
+## Code layout
+
+- **Shared:** `src/components/`, `src/lib/`, `src/hooks/`
+- **Feature-specific:** colocated under `src/app/<feature>/` with `_` prefixes
+- Hooks: `use-hook-name.ts` in `src/hooks/`
+
+## Suspense
+
+Wrap async server components in `<Suspense fallback={...}>` at route or section boundaries — not around the entire page when only part of the tree needs data.

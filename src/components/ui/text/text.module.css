@@ -1,0 +1,102 @@
+.text {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--foreground);
+}
+
+.text--tone-muted {
+  color: var(--muted-foreground);
+}
+
+.text--tone-inverse {
+  color: var(--text-inverse);
+}
+
+.text--family-sans {
+  font-family: var(--font-sans);
+}
+
+.text--family-mono {
+  font-family: var(--font-mono);
+}
+
+.text--align-start {
+  text-align: start;
+}
+
+.text--align-center {
+  text-align: center;
+}
+
+.text--truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text--balance {
+  text-wrap: balance;
+}
+
+.text--display {
+  font-size: var(--type-display-size);
+  font-weight: var(--type-display-weight);
+  line-height: var(--type-display-line-height);
+  letter-spacing: var(--type-display-letter-spacing);
+}
+
+.text--page-title {
+  font-size: var(--type-page-title-size);
+  font-weight: var(--type-page-title-weight);
+  line-height: var(--type-page-title-line-height);
+  letter-spacing: var(--type-page-title-letter-spacing);
+}
+
+.text--theatre-title {
+  font-size: var(--type-theatre-title-size);
+  font-weight: var(--type-theatre-title-weight);
+  line-height: var(--type-theatre-title-line-height);
+  letter-spacing: var(--type-theatre-title-letter-spacing);
+}
+
+.text--section-title {
+  font-size: var(--type-section-title-size);
+  font-weight: var(--type-section-title-weight);
+  line-height: var(--type-section-title-line-height);
+  letter-spacing: var(--type-section-title-letter-spacing);
+}
+
+.text--intro-title {
+  font-size: var(--type-intro-title-size);
+  font-weight: var(--type-intro-title-weight);
+  line-height: var(--type-intro-title-line-height);
+  letter-spacing: var(--type-intro-title-letter-spacing);
+}
+
+.text--promo-title {
+  font-size: var(--type-promo-title-size);
+  font-weight: var(--type-promo-title-weight);
+  line-height: var(--type-promo-title-line-height);
+  letter-spacing: var(--type-promo-title-letter-spacing);
+}
+
+.text--lead {
+  font-size: var(--type-lead-size);
+  font-weight: var(--type-lead-weight);
+  line-height: var(--type-lead-line-height);
+  letter-spacing: var(--type-lead-letter-spacing);
+}
+
+.text--body {
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  line-height: var(--type-body-line-height);
+  letter-spacing: var(--type-body-letter-spacing);
+}
+
+.text--ui {
+  font-size: var(--type-ui-size);
+  font-weight: var(--type-ui-weight);
+  line-height: var(--type-ui-line-height);
+  letter-spacing: var(--type-ui-letter-spacing);
+}

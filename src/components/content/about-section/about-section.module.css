@@ -1,0 +1,40 @@
+.about-section__container {
+  width: 100%;
+}
+
+.about-section__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-section__copy {
+  min-width: 0;
+}
+
+.about-section__speakers {
+  width: 100%;
+}
+
+@media (min-width: 48em) {
+  .about-section__inner {
+    gap: 24px;
+  }
+}
+
+@media (min-width: 90em) {
+  .about-section__inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .about-section__copy {
+    flex: 1;
+  }
+
+  .about-section__speakers {
+    max-width: 480px;
+    flex-shrink: 0;
+  }
+}

@@ -1,0 +1,36 @@
+.platform-links {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.platform-links__item {
+  margin: 0;
+}
+
+.platform-links__button {
+  width: 100%;
+}
+
+@media (min-width: 48em) {
+  .platform-links {
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .platform-links__button {
+    width: auto;
+  }
+}
+
+@media (min-width: 90em) {
+  .platform-links {
+    gap: 12px;
+  }
+}

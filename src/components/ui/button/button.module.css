@@ -1,0 +1,74 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4286;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button--large {
+  padding: 8px 24px;
+}
+
+.button--dark {
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.button--dark:hover {
+  background: #262626;
+}
+
+.button--light {
+  color: var(--foreground);
+  background: var(--background);
+  border-color: var(--border);
+  box-shadow: 0 1px 1.75px rgb(0 0 0 / 0.05);
+}
+
+.button--light:hover {
+  background: #f5f5f5;
+}
+
+.button--ghost {
+  color: inherit;
+  background: transparent;
+}
+
+.button--ghost:hover {
+  background: transparent;
+}
+
+.button:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+  box-shadow: var(--focus-shadow);
+}
+
+.button--icon-only {
+  padding: 8px;
+}
+
+.button__icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.button--large .button__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.button__label {
+  display: inline-flex;
+  align-items: center;
+}

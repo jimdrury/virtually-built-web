@@ -1,26 +1,155 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --border: #e5e5e5;
+  --primary: #171717;
+  --primary-foreground: #fafafa;
+  --muted-foreground: #737373;
+  --text-inverse: #fafafa;
+  --site-max-width: 1440px;
+  --site-padding-inline: 48px;
+  --focus-outline: 2px solid transparent;
+  --focus-outline-offset: 2px;
+  --focus-shadow: 0 0 0 2px #fff, 0 0 0 4px #000;
+
+  /* display */
+  --type-display-size: 3.5rem;
+  --type-display-line-height: 1.05;
+  --type-display-letter-spacing: -0.125rem;
+  --type-display-weight: 600;
+
+  /* page-title */
+  --type-page-title-size: 3rem;
+  --type-page-title-line-height: 1.05;
+  --type-page-title-letter-spacing: -0.09375rem;
+  --type-page-title-weight: 600;
+
+  /* theatre-title */
+  --type-theatre-title-size: 2.5rem;
+  --type-theatre-title-line-height: 1.1;
+  --type-theatre-title-letter-spacing: -0.075rem;
+  --type-theatre-title-weight: 600;
+
+  /* section-title */
+  --type-section-title-size: 2rem;
+  --type-section-title-line-height: 1.2;
+  --type-section-title-letter-spacing: -0.03125rem;
+  --type-section-title-weight: 600;
+
+  /* intro-title */
+  --type-intro-title-size: 2.25rem;
+  --type-intro-title-line-height: 1.15;
+  --type-intro-title-letter-spacing: -0.0625rem;
+  --type-intro-title-weight: 600;
+
+  /* promo-title */
+  --type-promo-title-size: 1.75rem;
+  --type-promo-title-line-height: 1.2;
+  --type-promo-title-letter-spacing: -0.03125rem;
+  --type-promo-title-weight: 600;
+
+  /* lead */
+  --type-lead-size: 1.125rem;
+  --type-lead-line-height: 1.6;
+  --type-lead-letter-spacing: 0;
+  --type-lead-weight: 400;
+
+  /* body */
+  --type-body-size: 1rem;
+  --type-body-line-height: 1.55;
+  --type-body-letter-spacing: 0;
+  --type-body-weight: 400;
+
+  /* ui */
+  --type-ui-size: 1rem;
+  --type-ui-line-height: 1.5;
+  --type-ui-letter-spacing: 0;
+  --type-ui-weight: 500;
+}
+
+@media (min-width: 48em) and (max-width: 89.9375em) {
+  :root {
+    --site-padding-inline: 24px;
+
+    --type-display-size: 2.125rem;
+    --type-display-line-height: 1.08;
+    --type-display-letter-spacing: -0.075rem;
+
+    --type-page-title-size: 2.25rem;
+    --type-page-title-line-height: 1.1;
+    --type-page-title-letter-spacing: -0.0625rem;
+
+    --type-theatre-title-size: 2rem;
+    --type-theatre-title-line-height: 1.1;
+    --type-theatre-title-letter-spacing: -0.0625rem;
+
+    --type-section-title-size: 1.625rem;
+
+    --type-intro-title-size: 1.75rem;
+    --type-intro-title-line-height: 1.15;
+    --type-intro-title-letter-spacing: -0.05rem;
+
+    --type-promo-title-size: 1.375rem;
+    --type-promo-title-line-height: 1.2;
+    --type-promo-title-letter-spacing: -0.03125rem;
+
+    --type-lead-size: 0.9375rem;
+    --type-lead-line-height: 1.55;
+
+    --type-body-size: 0.9375rem;
+    --type-body-line-height: 1.55;
+  }
+}
+
+@media (max-width: 47.9375em) {
+  :root {
+    --site-padding-inline: 16px;
+
+    --type-display-size: 2rem;
+    --type-display-line-height: 1.12;
+    --type-display-letter-spacing: -0.0625rem;
+
+    --type-page-title-size: 1.75rem;
+    --type-page-title-line-height: 1.12;
+    --type-page-title-letter-spacing: -0.05rem;
+
+    --type-theatre-title-size: 1.5rem;
+    --type-theatre-title-line-height: 1.15;
+    --type-theatre-title-letter-spacing: -0.05rem;
+
+    --type-section-title-size: 1.375rem;
+
+    --type-intro-title-size: 1.5rem;
+    --type-intro-title-line-height: 1.15;
+    --type-intro-title-letter-spacing: -0.0375rem;
+
+    --type-promo-title-size: 1.25rem;
+    --type-promo-title-line-height: 1.2;
+    --type-promo-title-letter-spacing: -0.025rem;
+
+    --type-lead-size: 0.875rem;
+    --type-lead-line-height: 1.55;
+
+    --type-body-size: 0.875rem;
+    --type-body-line-height: 1.55;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-text-inverse: var(--text-inverse);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

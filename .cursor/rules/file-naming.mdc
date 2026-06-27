@@ -1,0 +1,24 @@
+---
+description: Use kebab-case for all filenames
+alwaysApply: true
+---
+
+# File naming
+
+All new files must use **kebab-case** (lowercase words separated by hyphens).
+
+```text
+✅ episode-card.tsx
+✅ tokens.stories.tsx
+✅ studio-welcome.mdx
+✅ use-media-query.ts
+
+❌ EpisodeCard.tsx
+❌ StudioWelcome.mdx   (use studio-welcome.mdx)
+❌ Icons.stories.tsx   (use icons.stories.tsx)
+❌ useMediaQuery.ts
+```
+
+Applies to source, stories, styles, and docs. React component **exports** stay PascalCase (`EpisodeCard`); only the **filename** is kebab-case.
+
+When renaming existing PascalCase files, prefer kebab-case in the same change if you are already touching that file.

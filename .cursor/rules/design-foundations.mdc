@@ -1,0 +1,39 @@
+---
+description: Keep Storybook foundation catalogs in sync when adding colors or icons
+globs: src/app/globals.css,src/components/**/*.tsx
+alwaysApply: false
+---
+
+# Design foundations — Storybook catalogs
+
+When adding design tokens or icons, update the matching Storybook catalog in the same change.
+
+## Colors → `tokens.stories.tsx`
+
+When adding or renaming a color token (e.g. in `globals.css` `@theme` or `:root` CSS variables), add a swatch to the `Colors` story in `src/components/foundations/tokens.stories.tsx`.
+
+```tsx
+// ✅ Add a swatch for each new token
+<div className="space-y-2">
+  <div className="h-16 rounded-lg bg-primary" />
+  <p className="text-sm font-medium">primary</p>
+</div>
+```
+
+Use the Tailwind class that maps to the token (e.g. `bg-background`, `text-muted-foreground`). Include a border on light swatches when needed for contrast.
+
+## Icons → `icons.stories.tsx`
+
+When importing a new icon from `react-icons` for use in the app, add it to the `catalog` array in `src/components/foundations/icons.stories.tsx`.
+
+```tsx
+// ✅ Import at top, then register in catalog
+import { LuSparkles } from "react-icons/lu";
+
+const catalog = [
+  // ...existing entries
+  { label: "LuSparkles", Icon: LuSparkles },
+] as const;
+```
+
+Keep `label` matching the export name. Preview under **Foundations / Icons** in Storybook.

@@ -1,0 +1,10 @@
+.site-header-subscribe-button {
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 47.9375em) {
+  .site-header-subscribe-button {
+    display: none;
+  }
+}

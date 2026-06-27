@@ -1,0 +1,23 @@
+.speaker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.speaker-list__item {
+  margin: 0;
+  min-width: 0;
+}
+
+@media (min-width: 48em) {
+  .speaker-list {
+    flex-direction: row;
+  }
+
+  .speaker-list__item {
+    flex: 1;
+  }
+}
