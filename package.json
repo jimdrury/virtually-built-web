@@ -7,13 +7,14 @@
     "build": "next build",
     "start": "next start",
     "format": "biome check --write",
-    "prepare": "lefthook install",
+    "prepare": "git rev-parse --git-dir > /dev/null 2>&1 && lefthook install || true",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest --project unit --coverage --run",
     "test:storybook": "vitest --project storybook --run"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.21.0",
