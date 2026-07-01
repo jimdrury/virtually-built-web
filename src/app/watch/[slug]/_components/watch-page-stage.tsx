@@ -23,7 +23,6 @@ export const WatchPageStage: FC<WatchPageStageProps> = ({
   <div className={styles["watch-page__stage-anchor"]}>
     <div ref={stageSlotRef} className={styles["watch-page__stage-slot"]}>
       <div className={styles["watch-page__stage-reserve"]} aria-hidden>
-        <div className={styles["watch-page__stage-trim"]} />
         <div className={styles["watch-page__stage-media"]} />
       </div>
       <div
@@ -34,7 +33,6 @@ export const WatchPageStage: FC<WatchPageStageProps> = ({
             stickiness.mode === "anchored-bottom",
         })}
       >
-        <div aria-hidden className={styles["watch-page__stage-trim"]} />
         <div className={styles["watch-page__stage-media"]}>
           <WatchVideoPlayer youtubeUrl={youtubeUrl} />
         </div>
