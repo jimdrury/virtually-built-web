@@ -4,11 +4,7 @@ import { PortableText } from "next-sanity";
 import type { FC } from "react";
 import { Suspense } from "react";
 
-import {
-  getEpisode,
-  getEpisodeMetadata,
-  toEpisodePerspective,
-} from "@/api/episodes";
+import { getEpisode, getEpisodeMetadata } from "@/api/episodes";
 import { SanityImage } from "@/components/sanity/sanity-image";
 import { formatGuestNames } from "@/sanity/format-guests";
 import { urlFor } from "@/sanity/image";
@@ -26,7 +22,7 @@ export async function generateMetadata({
   params,
 }: EpisodePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const episode = await getEpisodeMetadata(slug, "published");
+  const episode = await getEpisodeMetadata(slug);
 
   if (!episode?.title) {
     return { title: "Episode not found" };
@@ -143,8 +139,8 @@ const EpisodePageContent: FC<{ params: Promise<{ slug: string }> }> = async ({
   params,
 }) => {
   const { slug } = await params;
-  const { perspective } = await getDynamicFetchOptions();
-  const episode = await getEpisode(slug, toEpisodePerspective(perspective));
+  const fetchOptions = await getDynamicFetchOptions();
+  const episode = await getEpisode(slug, fetchOptions);
 
   if (!episode?.title || !episode.artwork?.asset?._ref) {
     notFound();

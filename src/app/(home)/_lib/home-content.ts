@@ -11,7 +11,7 @@ export const homeHero: HomeHeroProps = {
     "A podcast on software, systems, and the people building the digital world — from architecture to craft, with guests who ship.",
   primaryCta: {
     label: "Listen to latest",
-    href: "/episodes/latest",
+    href: "/watch/latest",
   },
   secondaryCta: {
     label: "View all episodes",

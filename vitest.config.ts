@@ -35,7 +35,10 @@ export default defineConfig({
             provider: "v8",
             reporter: ["text", "text-summary", "html"],
             reportsDirectory: "./coverage",
-            include: ["src/components/**/*.{ts,tsx}"],
+            include: [
+              "src/components/**/*.{ts,tsx}",
+              "src/app/episodes/**/*.{ts,tsx}",
+            ],
             exclude: [
               "**/*.stories.*",
               "**/*.test.*",

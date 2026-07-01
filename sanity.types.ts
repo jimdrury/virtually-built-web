@@ -261,7 +261,7 @@ export type AllSanitySchemaTypes =
 
 // Source: ../virtually-built/src/api/episodes.ts
 // Variable: EPISODES_PAGE_QUERY
-// Query: *[_type == "episode" && defined(slug.current)] | order(publishedAt desc) [$start...$end] {    _id,    episodeNumber,    title,    slug,    guests[]->{      _id,      name,      role    },    publishedAt,    durationMinutes,    artwork {      asset,      alt,      hotspot,      crop    }  }
+// Query: *[_type == "episode" && defined(slug.current)] | order(publishedAt desc) [$start...$end] {    _id,    episodeNumber,    title,    slug,    guests[]->{      _id,      name,      role    },    publishedAt,    durationMinutes,    artwork {      asset,      alt,      hotspot,      crop    },    "showNotes": pt::text(showNotes)  }
 export type EPISODES_PAGE_QUERY_RESULT = Array<{
   _id: string;
   episodeNumber: number | null;
@@ -280,7 +280,7 @@ export type EPISODES_PAGE_QUERY_RESULT = Array<{
     hotspot: SanityImageHotspot | null;
     crop: SanityImageCrop | null;
   } | null;
-  showNotes: string | null;
+  showNotes: string;
 }>;
 
 // Source: ../virtually-built/src/sanity/queries/episodes.ts
@@ -365,7 +365,7 @@ export type EPISODES_COUNT_QUERY_RESULT = number;
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "episode" && defined(slug.current)] | order(publishedAt desc) [$start...$end] {\n    _id,\n    episodeNumber,\n    title,\n    slug,\n    guests[]->{\n      _id,\n      name,\n      role\n    },\n    publishedAt,\n    durationMinutes,\n    artwork {\n      asset,\n      alt,\n      hotspot,\n      crop\n    }\n  }': EPISODES_PAGE_QUERY_RESULT;
+    '*[_type == "episode" && defined(slug.current)] | order(publishedAt desc) [$start...$end] {\n    _id,\n    episodeNumber,\n    title,\n    slug,\n    guests[]->{\n      _id,\n      name,\n      role\n    },\n    publishedAt,\n    durationMinutes,\n    artwork {\n      asset,\n      alt,\n      hotspot,\n      crop\n    },\n    "showNotes": pt::text(showNotes)\n  }': EPISODES_PAGE_QUERY_RESULT;
     '*[_type == "episode" && slug.current == $slug][0]{\n    _id,\n    episodeNumber,\n    title,\n    slug,\n    guests[]->{\n      _id,\n      name,\n      role\n    },\n    publishedAt,\n    durationMinutes,\n    artwork {\n      asset,\n      alt,\n      hotspot,\n      crop\n    },\n    showNotes,\n    guests[]->{\n      _id,\n      name,\n      role,\n      avatar {\n        asset,\n        alt,\n        hotspot,\n        crop\n      }\n    },\n    hosts[]->{\n      _id,\n      name,\n      role,\n      avatar {\n        asset,\n        alt,\n        hotspot,\n        crop\n      }\n    }\n  }': EPISODE_QUERY_RESULT;
     '*[_type == "episode" && slug.current == $slug][0]{\n    title,\n    guests[]->{\n      name\n    }\n  }': EPISODE_METADATA_QUERY_RESULT;
     '*[_type == "episode" && defined(slug.current)] | order(publishedAt desc)[0].slug.current': LATEST_EPISODE_SLUG_QUERY_RESULT;

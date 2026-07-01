@@ -1,15 +1,17 @@
 import { cacheLife, cacheTag } from "next/cache";
 import { defineQuery } from "next-sanity";
-import type { LivePerspective } from "next-sanity/live";
 
-import { sanityFetch } from "@/sanity/live";
+import {
+  type DynamicFetchOptions,
+  PUBLISHED_FETCH_OPTIONS,
+  sanityFetch,
+} from "@/sanity/live";
 import {
   EPISODE_METADATA_QUERY,
   EPISODE_QUERY,
   EPISODES_COUNT_QUERY,
+  LATEST_EPISODE_SLUG_QUERY,
 } from "@/sanity/queries/episodes";
-
-export type EpisodePerspective = "published" | "draft";
 
 export const EPISODES_PAGE_SIZE = 12;
 
@@ -38,68 +40,59 @@ export const EPISODES_PAGE_QUERY = defineQuery(
 
 const toSliceEnd = (start: number, limit: number) => start + limit;
 
-export const toEpisodePerspective = (
-  perspective: LivePerspective,
-): EpisodePerspective => (perspective === "drafts" ? "draft" : "published");
+const cachePerspectiveKey = (options: DynamicFetchOptions) =>
+  options.perspective === "published" ? "published" : "draft";
 
-const toLivePerspective = (
-  perspective: EpisodePerspective,
-): LivePerspective => {
-  switch (perspective) {
-    case "published":
-      return "published";
-    case "draft":
-      return "drafts";
-    default: {
-      const exhaustive: never = perspective;
-      return exhaustive;
-    }
-  }
-};
-
-const stegaForPerspective = (perspective: EpisodePerspective) =>
-  perspective === "draft";
-
-export async function getEpisodes(
-  start: number,
-  limit: number,
-  perspective: EpisodePerspective = "published",
-) {
+async function episodeSanityFetch<const Q extends string>({
+  cacheKeyParts,
+  query,
+  params,
+  options = PUBLISHED_FETCH_OPTIONS,
+}: {
+  cacheKeyParts: string[];
+  query: Q;
+  params?: Record<string, unknown>;
+  options?: DynamicFetchOptions;
+}) {
   "use cache";
-  cacheTag("episode", "episodes", `episodes-${start}-${limit}`, perspective);
+  cacheTag("episode", ...cacheKeyParts, cachePerspectiveKey(options));
 
-  if (perspective === "published") {
+  if (options.perspective === "published") {
     cacheLife("hours");
   } else {
     cacheLife("minutes");
   }
 
-  const { data } = await sanityFetch({
+  return sanityFetch({
+    query,
+    params,
+    perspective: options.perspective,
+    stega: options.stega,
+  });
+}
+
+export async function getEpisodes(
+  start: number,
+  limit: number,
+  options: DynamicFetchOptions = PUBLISHED_FETCH_OPTIONS,
+) {
+  const { data } = await episodeSanityFetch({
+    cacheKeyParts: ["episodes", `episodes-${start}-${limit}`],
     query: EPISODES_PAGE_QUERY,
     params: { start, end: toSliceEnd(start, limit) },
-    perspective: toLivePerspective(perspective),
-    stega: stegaForPerspective(perspective),
+    options,
   });
 
   return data ?? [];
 }
 
 export async function getEpisodesCount(
-  perspective: EpisodePerspective = "published",
+  options: DynamicFetchOptions = PUBLISHED_FETCH_OPTIONS,
 ) {
-  "use cache";
-  cacheTag("episode", "episodes-count", perspective);
-
-  if (perspective === "published") {
-    cacheLife("hours");
-  } else {
-    cacheLife("minutes");
-  }
-
-  const { data } = await sanityFetch({
+  const { data } = await episodeSanityFetch({
+    cacheKeyParts: ["episodes-count"],
     query: EPISODES_COUNT_QUERY,
-    perspective: toLivePerspective(perspective),
-    stega: stegaForPerspective(perspective),
+    options,
   });
 
   return typeof data === "number" ? data : 0;
@@ -107,22 +100,13 @@ export async function getEpisodesCount(
 
 export async function getEpisodeMetadata(
   slug: string,
-  perspective: EpisodePerspective = "published",
+  options: DynamicFetchOptions = PUBLISHED_FETCH_OPTIONS,
 ) {
-  "use cache";
-  cacheTag("episode", `episode-${slug}`, perspective);
-
-  if (perspective === "published") {
-    cacheLife("hours");
-  } else {
-    cacheLife("minutes");
-  }
-
-  const { data } = await sanityFetch({
+  const { data } = await episodeSanityFetch({
+    cacheKeyParts: [`episode-${slug}`],
     query: EPISODE_METADATA_QUERY,
     params: { slug },
-    perspective: toLivePerspective(perspective),
-    stega: stegaForPerspective(perspective),
+    options,
   });
 
   return data;
@@ -130,22 +114,25 @@ export async function getEpisodeMetadata(
 
 export async function getEpisode(
   slug: string,
-  perspective: EpisodePerspective = "published",
+  options: DynamicFetchOptions = PUBLISHED_FETCH_OPTIONS,
 ) {
-  "use cache";
-  cacheTag("episode", `episode-${slug}`, perspective);
-
-  if (perspective === "published") {
-    cacheLife("hours");
-  } else {
-    cacheLife("minutes");
-  }
-
-  const { data } = await sanityFetch({
+  const { data } = await episodeSanityFetch({
+    cacheKeyParts: [`episode-${slug}`],
     query: EPISODE_QUERY,
     params: { slug },
-    perspective: toLivePerspective(perspective),
-    stega: stegaForPerspective(perspective),
+    options,
+  });
+
+  return data;
+}
+
+export async function getLatestEpisodeSlug(
+  options: DynamicFetchOptions = PUBLISHED_FETCH_OPTIONS,
+) {
+  const { data } = await episodeSanityFetch({
+    cacheKeyParts: ["latest-episode-slug"],
+    query: LATEST_EPISODE_SLUG_QUERY,
+    options,
   });
 
   return data;

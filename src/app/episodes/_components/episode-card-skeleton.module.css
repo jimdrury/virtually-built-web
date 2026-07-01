@@ -1,0 +1,169 @@
+.episode-card-skeleton {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 8px;
+  background: #0a0a0a;
+}
+
+.episode-card-skeleton__thumbnail {
+  flex-shrink: 0;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  background: #262626;
+}
+
+.episode-card-skeleton__body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 4px;
+  padding: 12px;
+  background: #171717;
+}
+
+.episode-card-skeleton__bar {
+  border-radius: 4px;
+  background: #262626;
+}
+
+.episode-card-skeleton__bar--muted {
+  background: #1f1f1f;
+}
+
+.episode-card-skeleton__bar--number {
+  width: 24px;
+  height: 10px;
+}
+
+.episode-card-skeleton__bar--title {
+  width: 100%;
+  height: 13px;
+}
+
+.episode-card-skeleton__bar--title-short {
+  width: 62%;
+  height: 13px;
+}
+
+.episode-card-skeleton__bar--notes {
+  width: 100%;
+  height: 10px;
+}
+
+.episode-card-skeleton__bar--guest {
+  width: 80px;
+  height: 11px;
+}
+
+.episode-card-skeleton__footer {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+  background: #0a0a0a;
+}
+
+.episode-card-skeleton__bar--duration {
+  width: 100px;
+  height: 10px;
+}
+
+.episode-card-skeleton__play {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: #262626;
+}
+
+@media (min-width: 48em) {
+  .episode-card-skeleton__body {
+    gap: 6px;
+    padding: 16px;
+  }
+
+  .episode-card-skeleton__bar--number {
+    width: 28px;
+    height: 11px;
+  }
+
+  .episode-card-skeleton__bar--title {
+    height: 14px;
+  }
+
+  .episode-card-skeleton__bar--title-short {
+    height: 14px;
+  }
+
+  .episode-card-skeleton__bar--notes {
+    height: 11px;
+  }
+
+  .episode-card-skeleton__bar--guest {
+    width: 90px;
+    height: 12px;
+  }
+
+  .episode-card-skeleton__footer {
+    padding: 10px 16px;
+  }
+
+  .episode-card-skeleton__bar--duration {
+    width: 110px;
+    height: 11px;
+  }
+
+  .episode-card-skeleton__play {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (min-width: 64.0625em) {
+  .episode-card-skeleton__body {
+    gap: 8px;
+    padding: 20px;
+  }
+
+  .episode-card-skeleton__bar--number {
+    width: 32px;
+    height: 12px;
+  }
+
+  .episode-card-skeleton__bar--title {
+    height: 16px;
+  }
+
+  .episode-card-skeleton__bar--title-short {
+    height: 16px;
+  }
+
+  .episode-card-skeleton__bar--notes {
+    height: 12px;
+  }
+
+  .episode-card-skeleton__bar--guest {
+    width: 100px;
+    height: 13px;
+  }
+
+  .episode-card-skeleton__footer {
+    padding: 12px 20px;
+  }
+
+  .episode-card-skeleton__bar--duration {
+    width: 120px;
+    height: 12px;
+  }
+
+  .episode-card-skeleton__play {
+    width: 16px;
+    height: 16px;
+  }
+}
