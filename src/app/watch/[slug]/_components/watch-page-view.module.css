@@ -5,15 +5,6 @@
   color: #fafafa;
 }
 
-.watch-page__theatre {
-  box-sizing: border-box;
-  margin-inline: auto;
-  max-width: var(--site-max-width);
-  padding-block: 32px 20px;
-  padding-inline: var(--site-padding-inline);
-  width: 100%;
-}
-
 .watch-page__player-region {
   position: relative;
 }
@@ -51,6 +42,30 @@
   aspect-ratio: 16 / 9;
   position: relative;
   width: 100%;
+}
+
+@media (max-width: 47.9375em) {
+  .watch-page__stage-anchor {
+    background: #0a0a0a;
+    padding: var(--site-padding-inline);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .watch-page__stage-reserve {
+    display: none;
+  }
+
+  .watch-page__stage {
+    inset-block-start: unset;
+    inset-inline-start: unset;
+    position: relative;
+  }
+
+  .watch-page__stage-trim {
+    display: none;
+  }
 }
 
 @media (min-width: 48em) and (max-width: 63.9375em) {
@@ -137,26 +152,6 @@
   flex-shrink: 0;
   height: 4px;
   width: 100%;
-}
-
-.watch-page__back-link {
-  align-items: center;
-  color: #737373;
-  display: inline-flex;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  gap: 8px;
-  text-decoration: none;
-  width: fit-content;
-}
-
-.watch-page__back-link:hover {
-  color: #a3a3a3;
-}
-
-.watch-page__back-icon {
-  flex-shrink: 0;
-  font-size: 1rem;
 }
 
 .watch-page__eyebrow {
@@ -258,10 +253,6 @@
 }
 
 @media (min-width: 48em) {
-  .watch-page__theatre {
-    padding-block: 40px 24px;
-  }
-
   .watch-page__stage-anchor {
     padding-bottom: 48px;
   }
@@ -281,10 +272,6 @@
 }
 
 @media (min-width: 64.0625em) {
-  .watch-page__theatre {
-    padding-block: 48px 32px;
-  }
-
   .watch-page__stage-anchor {
     padding-bottom: 64px;
   }

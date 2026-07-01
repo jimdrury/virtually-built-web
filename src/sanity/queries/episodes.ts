@@ -94,6 +94,10 @@ export const LATEST_EPISODE_SLUG_QUERY = defineQuery(
   `*[_type == "episode" && defined(slug.current)] | order(publishedAt desc)[0].slug.current`,
 );
 
+export const MAX_EPISODE_NUMBER_QUERY = defineQuery(
+  `*[_type == "episode" && defined(episodeNumber)] | order(episodeNumber desc)[0].episodeNumber`,
+);
+
 export const EPISODES_COUNT_QUERY = defineQuery(
   `count(*[_type == "episode" && defined(slug.current)])`,
 );

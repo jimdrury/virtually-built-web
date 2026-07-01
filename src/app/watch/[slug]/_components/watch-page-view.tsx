@@ -1,7 +1,5 @@
 import clsx from "clsx";
-import Link from "next/link";
 import type { FC } from "react";
-import { LuArrowLeft } from "react-icons/lu";
 
 import type { getEpisode, getRelatedEpisodes } from "@/api/episodes";
 import type { EpisodeSummary } from "@/components/content/episode-card";
@@ -120,16 +118,6 @@ export const WatchPageView: FC<WatchPageViewProps> = ({
         />
       ) : null}
       <div className={styles["watch-page"]}>
-        <section className={styles["watch-page__theatre"]}>
-          <Link href="/episodes" className={styles["watch-page__back-link"]}>
-            <LuArrowLeft
-              aria-hidden
-              className={styles["watch-page__back-icon"]}
-            />
-            All episodes
-          </Link>
-        </section>
-
         {episode.youtubeUrl ? (
           <WatchPlayerShell
             youtubeUrl={episode.youtubeUrl}

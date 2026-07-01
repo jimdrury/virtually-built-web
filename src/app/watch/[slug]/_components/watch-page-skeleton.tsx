@@ -9,15 +9,6 @@ export const WatchPageSkeleton: FC = () => (
     className={styles["watch-page-skeleton"]}
     data-testid="watch-page-skeleton"
   >
-    <div className={styles["watch-page-skeleton__theatre"]}>
-      <div
-        className={clsx([
-          styles["watch-page-skeleton__bar"],
-          styles["watch-page-skeleton__bar--back"],
-        ])}
-      />
-    </div>
-
     <div className={styles["watch-page-skeleton__stage"]}>
       <div className={styles["watch-page-skeleton__stage-trim"]} />
       <div className={styles["watch-page-skeleton__player"]} />

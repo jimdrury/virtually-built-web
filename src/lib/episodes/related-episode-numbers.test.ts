@@ -11,7 +11,11 @@ describe("getRelatedEpisodeNumbers", () => {
     expect(getRelatedEpisodeNumbers(1)).toEqual([2, 3, 4, 5]);
   });
 
-  it("pads from lower side near the end", () => {
-    expect(getRelatedEpisodeNumbers(36)).toEqual([34, 35, 37, 38]);
+  it("pads from lower side near the end when max episode number is known", () => {
+    expect(getRelatedEpisodeNumbers(36, 4, 36)).toEqual([32, 33, 34, 35]);
+  });
+
+  it("includes the latest episode when one below the max", () => {
+    expect(getRelatedEpisodeNumbers(35, 4, 36)).toEqual([32, 33, 34, 36]);
   });
 });

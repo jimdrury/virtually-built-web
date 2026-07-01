@@ -7,14 +7,6 @@
   gap: 0;
 }
 
-.watch-page-skeleton__theatre {
-  box-sizing: border-box;
-  margin-inline: auto;
-  max-width: var(--site-max-width);
-  padding: 32px var(--site-padding-inline) 20px;
-  width: 100%;
-}
-
 .watch-page-skeleton__stage {
   box-sizing: border-box;
   margin-inline: auto;
@@ -76,11 +68,6 @@
   animation: watch-page-skeleton-pulse 1.5s ease-in-out infinite;
   background: rgb(255 255 255 / 8%);
   border-radius: 4px;
-}
-
-.watch-page-skeleton__bar--back {
-  height: 16px;
-  width: 120px;
 }
 
 .watch-page-skeleton__bar--eyebrow {
@@ -155,10 +142,6 @@
 }
 
 @media (min-width: 48em) {
-  .watch-page-skeleton__theatre {
-    padding-block: 40px 24px;
-  }
-
   .watch-page-skeleton__stage {
     padding-bottom: 48px;
   }
@@ -177,10 +160,6 @@
 }
 
 @media (min-width: 64.0625em) {
-  .watch-page-skeleton__theatre {
-    padding-block: 48px 32px;
-  }
-
   .watch-page-skeleton__stage {
     padding-bottom: 64px;
   }
