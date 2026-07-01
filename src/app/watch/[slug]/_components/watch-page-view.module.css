@@ -5,15 +5,6 @@
   color: #fafafa;
 }
 
-.watch-page__theatre {
-  box-sizing: border-box;
-  margin-inline: auto;
-  max-width: var(--site-max-width);
-  padding-block: 32px 20px;
-  padding-inline: var(--site-padding-inline);
-  width: 100%;
-}
-
 .watch-page__player-region {
   position: relative;
 }
@@ -163,26 +154,6 @@
   width: 100%;
 }
 
-.watch-page__back-link {
-  align-items: center;
-  color: #737373;
-  display: inline-flex;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  gap: 8px;
-  text-decoration: none;
-  width: fit-content;
-}
-
-.watch-page__back-link:hover {
-  color: #a3a3a3;
-}
-
-.watch-page__back-icon {
-  flex-shrink: 0;
-  font-size: 1rem;
-}
-
 .watch-page__eyebrow {
   color: #737373;
   font-family: var(--font-mono);
@@ -282,10 +253,6 @@
 }
 
 @media (min-width: 48em) {
-  .watch-page__theatre {
-    padding-block: 40px 24px;
-  }
-
   .watch-page__stage-anchor {
     padding-bottom: 48px;
   }
@@ -305,10 +272,6 @@
 }
 
 @media (min-width: 64.0625em) {
-  .watch-page__theatre {
-    padding-block: 48px 32px;
-  }
-
   .watch-page__stage-anchor {
     padding-bottom: 64px;
   }
