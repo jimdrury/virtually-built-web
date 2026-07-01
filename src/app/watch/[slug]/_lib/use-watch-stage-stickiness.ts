@@ -3,7 +3,6 @@
 import { type RefObject, useEffect, useRef, useState } from "react";
 
 const LARGE_SCREEN_QUERY = "(min-width: 48em)";
-const DESKTOP_SCREEN_QUERY = "(min-width: 64em)";
 const ANCHORED_BOTTOM_VAR = "--watch-stage-anchored-bottom";
 
 export type WatchStageMode = "inline" | "stuck" | "anchored-bottom";
@@ -13,19 +12,13 @@ export type WatchStageStickiness = {
 };
 
 const getStickyTop = (): number => {
-  const desktopQuery = window.matchMedia(DESKTOP_SCREEN_QUERY);
+  const padding = getComputedStyle(document.documentElement)
+    .getPropertyValue("--site-padding-inline")
+    .trim();
 
-  if (desktopQuery.matches) {
-    const padding = getComputedStyle(document.documentElement)
-      .getPropertyValue("--site-padding-inline")
-      .trim();
+  const parsed = Number.parseFloat(padding);
 
-    const parsed = Number.parseFloat(padding);
-
-    return Number.isFinite(parsed) ? parsed : 0;
-  }
-
-  return 0;
+  return Number.isFinite(parsed) ? parsed : 0;
 };
 
 export const useWatchStageStickiness = (

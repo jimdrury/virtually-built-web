@@ -50,13 +50,15 @@ export const WatchPageSkeleton: FC = () => (
     </div>
 
     <div className={styles["watch-page-skeleton__transcript"]}>
-      <div
-        className={clsx([
-          styles["watch-page-skeleton__bar"],
-          styles["watch-page-skeleton__bar--section-title"],
-        ])}
-      />
-      <div className={styles["watch-page-skeleton__transcript-block"]} />
+      <div className={styles["watch-page-skeleton__transcript-inner"]}>
+        <div
+          className={clsx([
+            styles["watch-page-skeleton__bar"],
+            styles["watch-page-skeleton__bar--section-title"],
+          ])}
+        />
+        <div className={styles["watch-page-skeleton__transcript-block"]} />
+      </div>
     </div>
   </div>
 );

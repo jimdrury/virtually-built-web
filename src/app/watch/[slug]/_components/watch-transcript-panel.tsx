@@ -5,12 +5,11 @@ import {
   forwardRef,
   type RefObject,
   useCallback,
+  useId,
   useLayoutEffect,
   useRef,
   useState,
 } from "react";
-import { FaPlay } from "react-icons/fa";
-import { LuPause } from "react-icons/lu";
 
 import { SectionIntro } from "@/components/content/section-intro";
 
@@ -36,7 +35,8 @@ export const WatchTranscriptPanel = forwardRef<
   WatchTranscriptPanelProps
 >(({ transcript, lastItemRef }, ref) => {
   const lastIndex = transcript.length - 1;
-  const { currentTime, isPlaying, hasPlayback } = useWatchPlayerPlayback();
+  const followPlaybackId = useId();
+  const { currentTime } = useWatchPlayerPlayback();
   const { seek } = useWatchPlayerActions();
   const [syncFollow, setSyncFollow] = useState(false);
   const activeIndex = findActiveParagraphIndex(transcript, currentTime);
@@ -57,8 +57,6 @@ export const WatchTranscriptPanel = forwardRef<
     },
     [lastIndex, lastItemRef],
   );
-
-  const isInSync = hasPlayback && syncFollow && isPlaying;
 
   useLayoutEffect(() => {
     if (!syncFollow) {
@@ -97,14 +95,6 @@ export const WatchTranscriptPanel = forwardRef<
     seek(start);
   };
 
-  const syncTitle = isInSync ? "Following playback" : "Follow playback";
-
-  const syncHint = isInSync
-    ? "Transcript scrolls with the video"
-    : syncFollow
-      ? "Tap play to resume auto-scroll"
-      : "Turn on follow to scroll with the video";
-
   return (
     <section
       ref={ref}
@@ -115,76 +105,40 @@ export const WatchTranscriptPanel = forwardRef<
         <SectionIntro
           eyebrow="TRANSCRIPT"
           title="Follow along with the conversation"
-          body="Click any paragraph to jump to that moment. Pause follow if you want to read ahead without losing your place."
+          body="Click any paragraph to jump to that moment."
+          bodyAction={
+            <div className={styles["watch-transcript-panel__follow"]}>
+              <button
+                id={followPlaybackId}
+                type="button"
+                role="switch"
+                aria-checked={syncFollow}
+                className={clsx(
+                  styles["watch-transcript-panel__follow-switch"],
+                  {
+                    [styles["watch-transcript-panel__follow-switch--on"]]:
+                      syncFollow,
+                  },
+                )}
+                onClick={() => setSyncFollow((value) => !value)}
+              >
+                <span
+                  aria-hidden
+                  className={styles["watch-transcript-panel__follow-thumb"]}
+                />
+              </button>
+              <label
+                className={styles["watch-transcript-panel__follow-label"]}
+                htmlFor={followPlaybackId}
+              >
+                Sync transcript
+              </label>
+            </div>
+          }
+          bodyRowClassNames={styles["watch-transcript-panel__intro-body-row"]}
           titleId="watch-transcript-title"
           classNames={styles["watch-transcript-panel__intro"]}
         />
-
-        <div
-          className={clsx(styles["watch-transcript-panel__sync"], {
-            [styles["watch-transcript-panel__sync--playing"]]: isInSync,
-          })}
-        >
-          <div className={styles["watch-transcript-panel__sync-left"]}>
-            <button
-              type="button"
-              className={clsx(styles["watch-transcript-panel__sync-button"], {
-                [styles["watch-transcript-panel__sync-button--synced"]]:
-                  isInSync,
-              })}
-              onClick={() => setSyncFollow((value) => !value)}
-              aria-pressed={syncFollow}
-              aria-describedby="watch-transcript-sync-hint"
-              aria-label={
-                syncFollow
-                  ? "Pause transcript follow"
-                  : "Follow transcript playback"
-              }
-            >
-              {isInSync ? (
-                <LuPause
-                  aria-hidden
-                  className={styles["watch-transcript-panel__sync-icon"]}
-                />
-              ) : (
-                <FaPlay
-                  aria-hidden
-                  className={styles["watch-transcript-panel__sync-icon"]}
-                />
-              )}
-            </button>
-            <div className={styles["watch-transcript-panel__sync-copy"]}>
-              <p className={styles["watch-transcript-panel__sync-title"]}>
-                {syncTitle}
-              </p>
-              <p
-                className={styles["watch-transcript-panel__sync-hint"]}
-                id="watch-transcript-sync-hint"
-              >
-                {syncHint}
-              </p>
-            </div>
-          </div>
-          <div
-            className={clsx(styles["watch-transcript-panel__status"], {
-              [styles["watch-transcript-panel__status--live"]]: isInSync,
-            })}
-            aria-live="polite"
-            aria-atomic="true"
-          >
-            {isInSync ? (
-              <>
-                <span
-                  aria-hidden
-                  className={styles["watch-transcript-panel__status-dot"]}
-                />
-                In sync
-              </>
-            ) : (
-              "Paused"
-            )}
-          </div>
-        </div>
 
         <ol className={styles["watch-transcript-panel__list"]}>
           {transcript.map((entry, index) => {
