@@ -87,7 +87,11 @@ export const HeroTeaser: FC<HeroTeaserProps> = ({
         </h3>
 
         <div className={styles["hero-teaser__meta-row"]}>
-          <p className={styles["hero-teaser__meta-guest"]}>with {guestName}</p>
+          {guestName ? (
+            <p className={styles["hero-teaser__meta-guest"]}>
+              with {guestName}
+            </p>
+          ) : null}
           <p className={styles["hero-teaser__meta-date"]}>
             {publishedAt} · {duration}
           </p>

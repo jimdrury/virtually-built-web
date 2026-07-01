@@ -1,0 +1,37 @@
+.page-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+}
+
+.page-hero__eyebrow {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.09375rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.page-hero__subtitle {
+  max-width: 40rem;
+}
+
+@media (min-width: 48em) {
+  .page-hero {
+    gap: 12px;
+  }
+
+  .page-hero__eyebrow {
+    font-size: 0.6875rem;
+  }
+}
+
+@media (min-width: 64.0625em) {
+  .page-hero {
+    gap: 16px;
+  }
+}

@@ -17,7 +17,22 @@ describe("EpisodeCard", () => {
     ).toHaveAttribute("href", sampleEpisode.href);
     expect(screen.getByText("042")).toBeInTheDocument();
     expect(screen.getByText("Design systems at scale")).toBeInTheDocument();
-    expect(screen.getByText("Sam Rivera")).toBeInTheDocument();
+    expect(screen.getByText("With Sam Rivera")).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "Sam joins us to explore token architecture, component governance, and keeping design systems useful as products grow.",
+      ),
+    ).toBeInTheDocument();
+  });
+
+  it("omits show notes when not provided", () => {
+    renderWithProviders(
+      <EpisodeCard {...sampleEpisode} showNotes={undefined} />,
+    );
+
+    expect(
+      screen.queryByText(/token architecture, component governance/),
+    ).not.toBeInTheDocument();
   });
 
   it("renders the video badge when enabled", () => {

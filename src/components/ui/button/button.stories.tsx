@@ -10,7 +10,7 @@ const meta = {
     layout: "centered",
   },
   args: {
-    href: "/episodes/example",
+    href: "/watch/episode-001-example",
     children: "Play episode",
   },
 } satisfies Meta<typeof Button>;

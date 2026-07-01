@@ -1,15 +1,16 @@
 import { createClient } from "next-sanity";
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
+const projectIdEnv = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+const datasetEnv = process.env.NEXT_PUBLIC_SANITY_DATASET;
 
-if (!projectId || !dataset) {
+if (!projectIdEnv || !datasetEnv) {
   throw new Error(
     "Missing Sanity env vars. Set NEXT_PUBLIC_SANITY_PROJECT_ID and NEXT_PUBLIC_SANITY_DATASET in .env.local",
   );
 }
 
-export { projectId, dataset };
+export const projectId = projectIdEnv;
+export const dataset = datasetEnv;
 export const apiVersion = "2026-07-01";
 
 export const client = createClient({
@@ -17,4 +18,9 @@ export const client = createClient({
   dataset,
   apiVersion,
   useCdn: false,
+  stega: {
+    studioUrl:
+      process.env.NEXT_PUBLIC_SANITY_STUDIO_URL ??
+      "https://virtually-built.sanity.studio",
+  },
 });

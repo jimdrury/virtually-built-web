@@ -37,6 +37,17 @@ vi.mock("next/image", () => ({
   },
 }));
 
+vi.mock("next-sanity/image", () => ({
+  Image: function MockSanityImage({
+    fill: _fill,
+    ...props
+  }: ImgHTMLAttributes<HTMLImageElement> & { fill?: boolean }) {
+    // biome-ignore lint/performance/noImgElement: lightweight Sanity image stub for tests
+    return <img alt="" {...props} />;
+  },
+  imageLoader: ({ src }: { src: string }) => src,
+}));
+
 vi.mock("next/font/google", () => ({
   Geist: () => ({
     variable: "--font-geist-sans",

@@ -34,7 +34,8 @@ const meta = {
       duration: "47 min",
       imageSrc: "/images/featured-episode-art.png",
       imageAlt: "Sarah Chen and guest recording a video podcast episode",
-      episodeHref: "/episodes/designing-for-durability-in-distributed-systems",
+      episodeHref:
+        "/watch/episode-010-designing-for-durability-in-distributed-systems",
     },
   },
 } satisfies Meta<typeof HomeHero>;

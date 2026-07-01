@@ -22,12 +22,14 @@ const meta = {
   args: {
     number: "047",
     title: "Why local-first still matters",
-    guestName: "Marcus Webb",
+    guestName: "With Marcus Webb",
     publishedAt: "17 Jun 2026",
     duration: "38 min",
     imageSrc: "/images/featured-episode-art.png",
     imageAlt: "Marcus Webb recording a podcast episode",
-    href: "/episodes/why-local-first-still-matters",
+    href: "/watch/episode-006-why-local-first-still-matters",
+    showNotes:
+      "Marcus makes the case for local-first sync, offline tolerance, and why CRDTs still belong in your architecture toolkit.",
     showVideoBadge: false,
   },
 } satisfies Meta<typeof EpisodeCard>;
@@ -37,6 +39,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const WithoutShowNotes: Story = {
+  args: {
+    showNotes: undefined,
+  },
+};
 
 export const WithVideoBadge: Story = {
   args: {

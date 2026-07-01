@@ -13,7 +13,7 @@ const defaultEpisodes: EpisodeSummary[] = [
     duration: "38 min",
     imageSrc: "/images/featured-episode-art.png",
     imageAlt: "Marcus Webb recording a podcast episode",
-    href: "/episodes/why-local-first-still-matters",
+    href: "/watch/episode-006-why-local-first-still-matters",
     showVideoBadge: false,
   },
   {
@@ -24,7 +24,7 @@ const defaultEpisodes: EpisodeSummary[] = [
     duration: "52 min",
     imageSrc: "/images/featured-episode-art.png",
     imageAlt: "Elena Torres recording a podcast episode",
-    href: "/episodes/the-craft-of-incremental-delivery",
+    href: "/watch/episode-007-the-craft-of-incremental-delivery",
     showVideoBadge: false,
   },
   {
@@ -35,7 +35,7 @@ const defaultEpisodes: EpisodeSummary[] = [
     duration: "44 min",
     imageSrc: "/images/featured-episode-art.png",
     imageAlt: "James Okonkwo recording a podcast episode",
-    href: "/episodes/platform-teams-without-bottlenecks",
+    href: "/watch/episode-008-platform-teams-without-bottlenecks",
     showVideoBadge: false,
   },
   {
@@ -46,7 +46,7 @@ const defaultEpisodes: EpisodeSummary[] = [
     duration: "41 min",
     imageSrc: "/images/featured-episode-art.png",
     imageAlt: "Priya Sharma recording a podcast episode",
-    href: "/episodes/observability-without-the-overhead",
+    href: "/watch/episode-009-observability-without-the-overhead",
     showVideoBadge: true,
   },
 ];

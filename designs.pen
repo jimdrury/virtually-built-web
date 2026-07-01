@@ -291,6 +291,9 @@
                         "p14gA": {
                           "content": "Marcus Webb"
                         },
+                        "OsEMW": {
+                          "content": "Marcus makes the case for local-first sync, offline tolerance, and why CRDTs still belong in your architecture toolkit."
+                        },
                         "e4n8H": {
                           "content": "17 Jun 2026 · 38 min"
                         }
@@ -322,6 +325,9 @@
                         },
                         "p14gA": {
                           "content": "Elena Torres"
+                        },
+                        "OsEMW": {
+                          "content": "Elena walks through incremental delivery patterns that keep teams shipping without sacrificing quality or burning out."
                         },
                         "e4n8H": {
                           "content": "10 Jun 2026 · 52 min"
@@ -363,6 +369,9 @@
                         },
                         "p14gA": {
                           "content": "James Okonkwo"
+                        },
+                        "OsEMW": {
+                          "content": "James shares how platform teams can enable product squads without becoming the bottleneck everyone routes around."
                         },
                         "e4n8H": {
                           "content": "3 Jun 2026 · 44 min"
@@ -2033,6 +2042,19 @@
                   "fontFamily": "Geist",
                   "fontSize": 13,
                   "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "OsEMW",
+                  "name": "Show Notes",
+                  "fill": "#737373",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Sarah joins us to explore idempotency, graceful degradation, and designing systems that survive partial failure.",
+                  "lineHeight": 1.55,
+                  "fontFamily": "Geist",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -2189,6 +2211,19 @@
                   "fontFamily": "Geist",
                   "fontSize": 12,
                   "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "ZCRgT",
+                  "name": "Show Notes",
+                  "fill": "#737373",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Sarah joins us to explore idempotency, graceful degradation, and designing systems that survive partial failure.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Geist",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -2344,6 +2379,19 @@
                   "content": "Sarah Chen",
                   "fontFamily": "Geist",
                   "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "rtesQ",
+                  "name": "Show Notes",
+                  "fill": "#737373",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Sarah joins us to explore idempotency, graceful degradation, and designing systems that survive partial failure.",
+                  "lineHeight": 1.45,
+                  "fontFamily": "Geist",
+                  "fontSize": 10,
                   "fontWeight": "normal"
                 }
               ]
@@ -8311,8 +8359,8 @@
     {
       "type": "frame",
       "id": "tQQYU",
-      "x": 0,
-      "y": 5200,
+      "x": -1646,
+      "y": 0,
       "name": "Virtually Built — Desktop (Menu Open)",
       "clip": true,
       "width": 1440,

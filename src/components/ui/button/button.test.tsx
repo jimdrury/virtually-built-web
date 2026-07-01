@@ -9,13 +9,13 @@ import { Button } from "./button";
 describe("Button", () => {
   it("renders a link with label text and href", () => {
     renderWithProviders(
-      <Button href="/episodes/example">Listen to latest</Button>,
+      <Button href="/watch/episode-001-example">Listen to latest</Button>,
     );
 
     const link = screen.getByRole("link", { name: "Listen to latest" });
 
     expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute("href", "/episodes/example");
+    expect(link).toHaveAttribute("href", "/watch/episode-001-example");
   });
 
   it("defaults href to # when omitted", () => {
@@ -30,7 +30,7 @@ describe("Button", () => {
   it("renders start and end icons", () => {
     renderWithProviders(
       <Button
-        href="/episodes/example"
+        href="/watch/episode-001-example"
         startIcon={LuPlay}
         endIcon={LuArrowRight}
       >
@@ -46,7 +46,7 @@ describe("Button", () => {
   it("renders icon-only links without visible label text", () => {
     renderWithProviders(
       <Button
-        href="/episodes/example"
+        href="/watch/episode-001-example"
         iconOnly
         startIcon={LuPlay}
         aria-label="Play episode"

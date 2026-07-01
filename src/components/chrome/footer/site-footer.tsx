@@ -1,8 +1,10 @@
 import clsx from "clsx";
 import type { FC } from "react";
+import { Suspense } from "react";
 import { SiteLogo } from "@/components/chrome/logo";
 import { Container } from "@/components/layout/container";
 import { TextLink } from "@/components/ui/text/text-link";
+import { CopyrightYear } from "./copyright-year";
 import styles from "./site-footer.module.css";
 
 const FOOTER_LINKS = [
@@ -51,7 +53,9 @@ export const SiteFooter: FC<SiteFooterProps> = ({ classNames }) => (
             [styles["site-footer__copyright--tablet-order"]]: true,
           })}
         >
-          © {new Date().getFullYear()} Virtually Built
+          <Suspense fallback={<>© Virtually Built</>}>
+            <CopyrightYear />
+          </Suspense>
         </p>
       </div>
     </Container>

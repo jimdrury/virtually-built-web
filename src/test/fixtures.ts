@@ -22,12 +22,14 @@ export const sampleSpeakers: SpeakerItem[] = [
 export const sampleEpisode: EpisodeSummary = {
   number: "042",
   title: "Design systems at scale",
-  guestName: "Sam Rivera",
+  guestName: "With Sam Rivera",
+  showNotes:
+    "Sam joins us to explore token architecture, component governance, and keeping design systems useful as products grow.",
   publishedAt: "Mar 12, 2026",
   duration: "48 min",
   imageSrc: "/images/featured-episode-art.png",
   imageAlt: "Episode artwork",
-  href: "/episodes/design-systems-at-scale",
+  href: "/watch/episode-011-design-systems-at-scale",
 };
 
 export const sampleFeaturedEpisode: HeroTeaserProps = {
@@ -37,7 +39,7 @@ export const sampleFeaturedEpisode: HeroTeaserProps = {
   duration: "48 min",
   imageSrc: "/images/featured-episode-art.png",
   imageAlt: "Episode artwork",
-  episodeHref: "/episodes/design-systems-at-scale",
+  episodeHref: "/watch/episode-011-design-systems-at-scale",
 };
 
 export const sampleHomeHeroProps: HomeHeroProps = {

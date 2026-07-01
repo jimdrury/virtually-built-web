@@ -15,42 +15,6 @@
 export declare const internalGroqTypeReferenceTo: unique symbol;
 
 // Source: schema.json
-export type Post = {
-  _id: string;
-  _type: "post";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  slug?: Slug;
-  publishedAt?: string;
-  excerpt?: string;
-  body?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
-};
-
-export type Slug = {
-  _type: "slug";
-  current?: string;
-  source?: string;
-};
-
 export type SanityImageAssetReference = {
   _ref: string;
   _type: "reference";
@@ -92,6 +56,31 @@ export type SanityImageHotspot = {
   width?: number;
 };
 
+export type Guest = {
+  _id: string;
+  _type: "guest";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  role?: string;
+  avatar?: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+};
+
+export type GuestReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "guest";
+};
+
 export type HostReference = {
   _ref: string;
   _type: "reference";
@@ -108,7 +97,11 @@ export type Episode = {
   episodeNumber?: number;
   title?: string;
   slug?: Slug;
-  guestName?: string;
+  guests?: Array<
+    {
+      _key: string;
+    } & GuestReference
+  >;
   hosts?: Array<
     {
       _key: string;
@@ -142,6 +135,12 @@ export type Episode = {
     _type: "block";
     _key: string;
   }>;
+};
+
+export type Slug = {
+  _type: "slug";
+  current?: string;
+  source?: string;
 };
 
 export type SanityImagePaletteSwatch = {
@@ -242,14 +241,15 @@ export type Geopoint = {
 };
 
 export type AllSanitySchemaTypes =
-  | Post
-  | Slug
   | SanityImageAssetReference
   | Host
   | SanityImageCrop
   | SanityImageHotspot
+  | Guest
+  | GuestReference
   | HostReference
   | Episode
+  | Slug
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
@@ -259,13 +259,58 @@ export type AllSanitySchemaTypes =
   | SanityImageAsset
   | Geopoint;
 
-// Source: ../virtually-built/src/app/posts/[slug]/page.tsx
-// Variable: POST_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0]{    _id,    title,    body,    publishedAt  }
-export type POST_QUERY_RESULT = {
+// Source: ../virtually-built/src/api/episodes.ts
+// Variable: EPISODES_PAGE_QUERY
+// Query: *[_type == "episode" && defined(slug.current)] | order(publishedAt desc) [$start...$end] {    _id,    episodeNumber,    title,    slug,    guests[]->{      _id,      name,      role    },    publishedAt,    durationMinutes,    artwork {      asset,      alt,      hotspot,      crop    }  }
+export type EPISODES_PAGE_QUERY_RESULT = Array<{
   _id: string;
+  episodeNumber: number | null;
   title: string | null;
-  body: Array<{
+  slug: Slug | null;
+  guests: Array<{
+    _id: string;
+    name: string | null;
+    role: string | null;
+  }> | null;
+  publishedAt: string | null;
+  durationMinutes: number | null;
+  artwork: {
+    asset: SanityImageAssetReference | null;
+    alt: string | null;
+    hotspot: SanityImageHotspot | null;
+    crop: SanityImageCrop | null;
+  } | null;
+  showNotes: string | null;
+}>;
+
+// Source: ../virtually-built/src/sanity/queries/episodes.ts
+// Variable: EPISODE_QUERY
+// Query: *[_type == "episode" && slug.current == $slug][0]{    _id,    episodeNumber,    title,    slug,    guests[]->{      _id,      name,      role    },    publishedAt,    durationMinutes,    artwork {      asset,      alt,      hotspot,      crop    },    showNotes,    guests[]->{      _id,      name,      role,      avatar {        asset,        alt,        hotspot,        crop      }    },    hosts[]->{      _id,      name,      role,      avatar {        asset,        alt,        hotspot,        crop      }    }  }
+export type EPISODE_QUERY_RESULT = {
+  _id: string;
+  episodeNumber: number | null;
+  title: string | null;
+  slug: Slug | null;
+  guests: Array<{
+    _id: string;
+    name: string | null;
+    role: string | null;
+    avatar: {
+      asset: SanityImageAssetReference | null;
+      alt: string | null;
+      hotspot: SanityImageHotspot | null;
+      crop: SanityImageCrop | null;
+    } | null;
+  }> | null;
+  publishedAt: string | null;
+  durationMinutes: number | null;
+  artwork: {
+    asset: SanityImageAssetReference | null;
+    alt: string | null;
+    hotspot: SanityImageHotspot | null;
+    crop: SanityImageCrop | null;
+  } | null;
+  showNotes: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -283,25 +328,47 @@ export type POST_QUERY_RESULT = {
     _type: "block";
     _key: string;
   }> | null;
-  publishedAt: string | null;
+  hosts: Array<{
+    _id: string;
+    name: string | null;
+    role: string | null;
+    avatar: {
+      asset: SanityImageAssetReference | null;
+      alt: string | null;
+      hotspot: SanityImageHotspot | null;
+      crop: SanityImageCrop | null;
+    } | null;
+  }> | null;
 } | null;
 
-// Source: ../virtually-built/src/app/posts/page.tsx
-// Variable: POSTS_QUERY
-// Query: *[_type == "post" && defined(slug.current)] | order(publishedAt desc) {    _id,    title,    slug,    excerpt,    publishedAt  }
-export type POSTS_QUERY_RESULT = Array<{
-  _id: string;
+// Source: ../virtually-built/src/sanity/queries/episodes.ts
+// Variable: EPISODE_METADATA_QUERY
+// Query: *[_type == "episode" && slug.current == $slug][0]{    title,    guests[]->{      name    }  }
+export type EPISODE_METADATA_QUERY_RESULT = {
   title: string | null;
-  slug: Slug | null;
-  excerpt: string | null;
-  publishedAt: string | null;
-}>;
+  guests: Array<{
+    name: string | null;
+  }> | null;
+} | null;
+
+// Source: ../virtually-built/src/sanity/queries/episodes.ts
+// Variable: LATEST_EPISODE_SLUG_QUERY
+// Query: *[_type == "episode" && defined(slug.current)] | order(publishedAt desc)[0].slug.current
+export type LATEST_EPISODE_SLUG_QUERY_RESULT = string | null;
+
+// Source: ../virtually-built/src/sanity/queries/episodes.ts
+// Variable: EPISODES_COUNT_QUERY
+// Query: count(*[_type == "episode" && defined(slug.current)])
+export type EPISODES_COUNT_QUERY_RESULT = number;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "post" && slug.current == $slug][0]{\n    _id,\n    title,\n    body,\n    publishedAt\n  }': POST_QUERY_RESULT;
-    '*[_type == "post" && defined(slug.current)] | order(publishedAt desc) {\n    _id,\n    title,\n    slug,\n    excerpt,\n    publishedAt\n  }': POSTS_QUERY_RESULT;
+    '*[_type == "episode" && defined(slug.current)] | order(publishedAt desc) [$start...$end] {\n    _id,\n    episodeNumber,\n    title,\n    slug,\n    guests[]->{\n      _id,\n      name,\n      role\n    },\n    publishedAt,\n    durationMinutes,\n    artwork {\n      asset,\n      alt,\n      hotspot,\n      crop\n    }\n  }': EPISODES_PAGE_QUERY_RESULT;
+    '*[_type == "episode" && slug.current == $slug][0]{\n    _id,\n    episodeNumber,\n    title,\n    slug,\n    guests[]->{\n      _id,\n      name,\n      role\n    },\n    publishedAt,\n    durationMinutes,\n    artwork {\n      asset,\n      alt,\n      hotspot,\n      crop\n    },\n    showNotes,\n    guests[]->{\n      _id,\n      name,\n      role,\n      avatar {\n        asset,\n        alt,\n        hotspot,\n        crop\n      }\n    },\n    hosts[]->{\n      _id,\n      name,\n      role,\n      avatar {\n        asset,\n        alt,\n        hotspot,\n        crop\n      }\n    }\n  }': EPISODE_QUERY_RESULT;
+    '*[_type == "episode" && slug.current == $slug][0]{\n    title,\n    guests[]->{\n      name\n    }\n  }': EPISODE_METADATA_QUERY_RESULT;
+    '*[_type == "episode" && defined(slug.current)] | order(publishedAt desc)[0].slug.current': LATEST_EPISODE_SLUG_QUERY_RESULT;
+    'count(*[_type == "episode" && defined(slug.current)])': EPISODES_COUNT_QUERY_RESULT;
   }
 }

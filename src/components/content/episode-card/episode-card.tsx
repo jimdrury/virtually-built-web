@@ -1,10 +1,11 @@
 import clsx from "clsx";
-import Image from "next/image";
 import Link from "next/link";
 import type { ComponentProps, FC } from "react";
 import { useId } from "react";
 import { LuPlay } from "react-icons/lu";
 import { MdVideocam } from "react-icons/md";
+
+import { SanityImage } from "@/components/sanity/sanity-image";
 
 import styles from "./episode-card.module.css";
 
@@ -17,6 +18,7 @@ export interface EpisodeSummary {
   imageSrc: string;
   imageAlt: string;
   href: ComponentProps<typeof Link>["href"];
+  showNotes?: string;
   showVideoBadge?: boolean;
 }
 
@@ -33,6 +35,7 @@ export const EpisodeCard: FC<EpisodeCardProps> = ({
   imageSrc,
   imageAlt,
   href,
+  showNotes,
   showVideoBadge = false,
   classNames,
 }) => {
@@ -44,11 +47,11 @@ export const EpisodeCard: FC<EpisodeCardProps> = ({
       aria-labelledby={titleId}
     >
       <div className={styles["episode-card__thumbnail"]}>
-        <Image
+        <SanityImage
           src={imageSrc}
           alt={imageAlt}
           fill
-          sizes="(max-width: 47.9375em) 100vw, (max-width: 64em) 50vw, 25vw"
+          sizes="(max-width: 47.9375em) 50vw, (max-width: 64em) 50vw, 33vw"
           className={styles["episode-card__image"]}
         />
         {showVideoBadge ? (
@@ -69,7 +72,12 @@ export const EpisodeCard: FC<EpisodeCardProps> = ({
         <h3 className={styles["episode-card__title"]} id={titleId}>
           {title}
         </h3>
-        <p className={styles["episode-card__guest"]}>{guestName}</p>
+        {showNotes ? (
+          <p className={styles["episode-card__notes"]}>{showNotes}</p>
+        ) : null}
+        {guestName ? (
+          <p className={styles["episode-card__guest"]}>{guestName}</p>
+        ) : null}
       </div>
 
       <div className={styles["episode-card__footer"]}>
@@ -79,8 +87,9 @@ export const EpisodeCard: FC<EpisodeCardProps> = ({
         <Link href={href} className={styles["episode-card__link"]}>
           <LuPlay aria-hidden className={styles["episode-card__play-icon"]} />
           <span className="sr-only">
-            Episode {number}: {title}, with {guestName}, {publishedAt},{" "}
-            {duration}
+            Episode {number}: {title}
+            {guestName ? `, ${guestName}` : ""}
+            {showNotes ? `. ${showNotes}` : ""}, {publishedAt}, {duration}
           </span>
         </Link>
       </div>
