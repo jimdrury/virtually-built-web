@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import type { FC } from "react";
 
 import styles from "./episode-card-skeleton.module.css";
@@ -12,28 +13,52 @@ export const EpisodeCardSkeleton: FC = () => (
 
     <div className={styles["episode-card-skeleton__body"]}>
       <div
-        className={`${styles["episode-card-skeleton__bar"]} ${styles["episode-card-skeleton__bar--number"]}`}
+        className={clsx([
+          styles["episode-card-skeleton__bar"],
+          styles["episode-card-skeleton__bar--number"],
+        ])}
       />
       <div
-        className={`${styles["episode-card-skeleton__bar"]} ${styles["episode-card-skeleton__bar--title"]}`}
+        className={clsx([
+          styles["episode-card-skeleton__bar"],
+          styles["episode-card-skeleton__bar--title"],
+        ])}
       />
       <div
-        className={`${styles["episode-card-skeleton__bar"]} ${styles["episode-card-skeleton__bar--title-short"]}`}
+        className={clsx([
+          styles["episode-card-skeleton__bar"],
+          styles["episode-card-skeleton__bar--title-short"],
+        ])}
       />
       <div
-        className={`${styles["episode-card-skeleton__bar"]} ${styles["episode-card-skeleton__bar--muted"]} ${styles["episode-card-skeleton__bar--notes"]}`}
+        className={clsx([
+          styles["episode-card-skeleton__bar"],
+          styles["episode-card-skeleton__bar--muted"],
+          styles["episode-card-skeleton__bar--notes"],
+        ])}
       />
       <div
-        className={`${styles["episode-card-skeleton__bar"]} ${styles["episode-card-skeleton__bar--muted"]} ${styles["episode-card-skeleton__bar--notes"]}`}
+        className={clsx([
+          styles["episode-card-skeleton__bar"],
+          styles["episode-card-skeleton__bar--muted"],
+          styles["episode-card-skeleton__bar--notes"],
+        ])}
       />
       <div
-        className={`${styles["episode-card-skeleton__bar"]} ${styles["episode-card-skeleton__bar--muted"]} ${styles["episode-card-skeleton__bar--guest"]}`}
+        className={clsx([
+          styles["episode-card-skeleton__bar"],
+          styles["episode-card-skeleton__bar--muted"],
+          styles["episode-card-skeleton__bar--guest"],
+        ])}
       />
     </div>
 
     <div className={styles["episode-card-skeleton__footer"]}>
       <div
-        className={`${styles["episode-card-skeleton__bar"]} ${styles["episode-card-skeleton__bar--duration"]}`}
+        className={clsx([
+          styles["episode-card-skeleton__bar"],
+          styles["episode-card-skeleton__bar--duration"],
+        ])}
       />
       <div className={styles["episode-card-skeleton__play"]} />
     </div>

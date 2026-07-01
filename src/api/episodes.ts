@@ -1,6 +1,6 @@
 import { cacheLife, cacheTag } from "next/cache";
 import { defineQuery } from "next-sanity";
-
+import { getRelatedEpisodeNumbers } from "@/lib/episodes/related-episode-numbers";
 import {
   type DynamicFetchOptions,
   PUBLISHED_FETCH_OPTIONS,
@@ -11,6 +11,7 @@ import {
   EPISODE_QUERY,
   EPISODES_COUNT_QUERY,
   LATEST_EPISODE_SLUG_QUERY,
+  RELATED_EPISODES_QUERY,
 } from "@/sanity/queries/episodes";
 
 export const EPISODES_PAGE_SIZE = 12;
@@ -136,4 +137,25 @@ export async function getLatestEpisodeSlug(
   });
 
   return data;
+}
+
+export async function getRelatedEpisodes(
+  episodeNumber: number,
+  slug: string,
+  options: DynamicFetchOptions = PUBLISHED_FETCH_OPTIONS,
+) {
+  const numbers = getRelatedEpisodeNumbers(episodeNumber);
+
+  if (numbers.length === 0) {
+    return [];
+  }
+
+  const { data } = await episodeSanityFetch({
+    cacheKeyParts: [`related-${slug}`, numbers.join("-")],
+    query: RELATED_EPISODES_QUERY,
+    params: { slug, numbers },
+    options,
+  });
+
+  return data ?? [];
 }

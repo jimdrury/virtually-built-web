@@ -285,7 +285,7 @@ export type EPISODES_PAGE_QUERY_RESULT = Array<{
 
 // Source: ../virtually-built/src/sanity/queries/episodes.ts
 // Variable: EPISODE_QUERY
-// Query: *[_type == "episode" && slug.current == $slug][0]{    _id,    episodeNumber,    title,    slug,    guests[]->{      _id,      name,      role    },    publishedAt,    durationMinutes,    artwork {      asset,      alt,      hotspot,      crop    },    showNotes,    guests[]->{      _id,      name,      role,      avatar {        asset,        alt,        hotspot,        crop      }    },    hosts[]->{      _id,      name,      role,      avatar {        asset,        alt,        hotspot,        crop      }    }  }
+// Query: *[_type == "episode" && slug.current == $slug][0]{    _id,    episodeNumber,    title,    slug,    guests[]->{      _id,      name,      role,      avatar {        asset,        alt,        hotspot,        crop      }    },    publishedAt,    durationMinutes,    artwork {      asset,      alt,      hotspot,      crop    },    showNotes,    "showNotesExcerpt": pt::text(showNotes),    youtubeUrl,    transcript[]{      start,      speaker,      text    },    hosts[]->{      _id,      name,      role,      avatar {        asset,        alt,        hotspot,        crop      }    }  }
 export type EPISODE_QUERY_RESULT = {
   _id: string;
   episodeNumber: number | null;
@@ -328,6 +328,13 @@ export type EPISODE_QUERY_RESULT = {
     _type: "block";
     _key: string;
   }> | null;
+  showNotesExcerpt: string | null;
+  youtubeUrl: string | null;
+  transcript: Array<{
+    start: number | null;
+    speaker: string | null;
+    text: string | null;
+  }> | null;
   hosts: Array<{
     _id: string;
     name: string | null;
@@ -343,13 +350,48 @@ export type EPISODE_QUERY_RESULT = {
 
 // Source: ../virtually-built/src/sanity/queries/episodes.ts
 // Variable: EPISODE_METADATA_QUERY
-// Query: *[_type == "episode" && slug.current == $slug][0]{    title,    guests[]->{      name    }  }
+// Query: *[_type == "episode" && slug.current == $slug][0]{    title,    episodeNumber,    publishedAt,    durationMinutes,    youtubeUrl,    "showNotesExcerpt": pt::text(showNotes),    artwork {      asset,      alt,      hotspot,      crop    },    guests[]->{      name    }  }
 export type EPISODE_METADATA_QUERY_RESULT = {
   title: string | null;
+  episodeNumber: number | null;
+  publishedAt: string | null;
+  durationMinutes: number | null;
+  youtubeUrl: string | null;
+  showNotesExcerpt: string | null;
+  artwork: {
+    asset: SanityImageAssetReference | null;
+    alt: string | null;
+    hotspot: SanityImageHotspot | null;
+    crop: SanityImageCrop | null;
+  } | null;
   guests: Array<{
     name: string | null;
   }> | null;
 } | null;
+
+// Source: ../virtually-built/src/sanity/queries/episodes.ts
+// Variable: RELATED_EPISODES_QUERY
+// Query: *[_type == "episode" && slug.current != $slug && episodeNumber in $numbers] | order(episodeNumber desc) {    _id,    episodeNumber,    title,    slug,    guests[]->{      _id,      name,      role    },    publishedAt,    durationMinutes,    artwork {      asset,      alt,      hotspot,      crop    },    "showNotes": pt::text(showNotes)  }
+export type RELATED_EPISODES_QUERY_RESULT = Array<{
+  _id: string;
+  episodeNumber: number | null;
+  title: string | null;
+  slug: Slug | null;
+  guests: Array<{
+    _id: string;
+    name: string | null;
+    role: string | null;
+  }> | null;
+  publishedAt: string | null;
+  durationMinutes: number | null;
+  artwork: {
+    asset: SanityImageAssetReference | null;
+    alt: string | null;
+    hotspot: SanityImageHotspot | null;
+    crop: SanityImageCrop | null;
+  } | null;
+  showNotes: string;
+}>;
 
 // Source: ../virtually-built/src/sanity/queries/episodes.ts
 // Variable: LATEST_EPISODE_SLUG_QUERY
@@ -366,8 +408,9 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     '*[_type == "episode" && defined(slug.current)] | order(publishedAt desc) [$start...$end] {\n    _id,\n    episodeNumber,\n    title,\n    slug,\n    guests[]->{\n      _id,\n      name,\n      role\n    },\n    publishedAt,\n    durationMinutes,\n    artwork {\n      asset,\n      alt,\n      hotspot,\n      crop\n    },\n    "showNotes": pt::text(showNotes)\n  }': EPISODES_PAGE_QUERY_RESULT;
-    '*[_type == "episode" && slug.current == $slug][0]{\n    _id,\n    episodeNumber,\n    title,\n    slug,\n    guests[]->{\n      _id,\n      name,\n      role\n    },\n    publishedAt,\n    durationMinutes,\n    artwork {\n      asset,\n      alt,\n      hotspot,\n      crop\n    },\n    showNotes,\n    guests[]->{\n      _id,\n      name,\n      role,\n      avatar {\n        asset,\n        alt,\n        hotspot,\n        crop\n      }\n    },\n    hosts[]->{\n      _id,\n      name,\n      role,\n      avatar {\n        asset,\n        alt,\n        hotspot,\n        crop\n      }\n    }\n  }': EPISODE_QUERY_RESULT;
-    '*[_type == "episode" && slug.current == $slug][0]{\n    title,\n    guests[]->{\n      name\n    }\n  }': EPISODE_METADATA_QUERY_RESULT;
+    '*[_type == "episode" && slug.current == $slug][0]{\n    _id,\n    episodeNumber,\n    title,\n    slug,\n    guests[]->{\n      _id,\n      name,\n      role,\n      avatar {\n        asset,\n        alt,\n        hotspot,\n        crop\n      }\n    },\n    publishedAt,\n    durationMinutes,\n    artwork {\n      asset,\n      alt,\n      hotspot,\n      crop\n    },\n    showNotes,\n    "showNotesExcerpt": pt::text(showNotes),\n    youtubeUrl,\n    transcript[]{\n      start,\n      speaker,\n      text\n    },\n    hosts[]->{\n      _id,\n      name,\n      role,\n      avatar {\n        asset,\n        alt,\n        hotspot,\n        crop\n      }\n    }\n  }': EPISODE_QUERY_RESULT;
+    '*[_type == "episode" && slug.current == $slug][0]{\n    title,\n    episodeNumber,\n    publishedAt,\n    durationMinutes,\n    youtubeUrl,\n    "showNotesExcerpt": pt::text(showNotes),\n    artwork {\n      asset,\n      alt,\n      hotspot,\n      crop\n    },\n    guests[]->{\n      name\n    }\n  }': EPISODE_METADATA_QUERY_RESULT;
+    '*[_type == "episode" && slug.current != $slug && episodeNumber in $numbers] | order(episodeNumber desc) {\n    _id,\n    episodeNumber,\n    title,\n    slug,\n    guests[]->{\n      _id,\n      name,\n      role\n    },\n    publishedAt,\n    durationMinutes,\n    artwork {\n      asset,\n      alt,\n      hotspot,\n      crop\n    },\n    "showNotes": pt::text(showNotes)\n  }': RELATED_EPISODES_QUERY_RESULT;
     '*[_type == "episode" && defined(slug.current)] | order(publishedAt desc)[0].slug.current': LATEST_EPISODE_SLUG_QUERY_RESULT;
     'count(*[_type == "episode" && defined(slug.current)])': EPISODES_COUNT_QUERY_RESULT;
   }

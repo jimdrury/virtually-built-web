@@ -5,7 +5,7 @@ import type { EPISODES_PAGE_QUERY_RESULT } from "../../sanity.types";
 
 export type EpisodeListItem = EPISODES_PAGE_QUERY_RESULT[number];
 
-const formatEpisodeNumber = (episodeNumber?: number | null) => {
+export const formatEpisodeNumber = (episodeNumber?: number | null) => {
   if (typeof episodeNumber !== "number") {
     return "000";
   }
@@ -13,7 +13,7 @@ const formatEpisodeNumber = (episodeNumber?: number | null) => {
   return String(episodeNumber).padStart(3, "0");
 };
 
-const formatPublishedAt = (publishedAt?: string | null) => {
+export const formatPublishedAt = (publishedAt?: string | null) => {
   if (typeof publishedAt !== "string") {
     return "";
   }
@@ -25,7 +25,7 @@ const formatPublishedAt = (publishedAt?: string | null) => {
   });
 };
 
-const formatDuration = (durationMinutes?: number | null) => {
+export const formatDuration = (durationMinutes?: number | null) => {
   if (typeof durationMinutes !== "number") {
     return "";
   }

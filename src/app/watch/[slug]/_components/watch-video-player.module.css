@@ -1,0 +1,54 @@
+.watch-video-player {
+  position: relative;
+  width: 100%;
+}
+
+/* @next/third-parties wrapper defaults to width: auto */
+.watch-video-player > div[data-ntpc="YouTubeEmbed"] {
+  /* biome-ignore lint/complexity/noImportantStyles: override third-party YouTube embed inline styles */
+  width: 100% !important;
+}
+
+.watch-video-player lite-youtube {
+  aspect-ratio: 16 / 9;
+  display: block;
+  /* biome-ignore lint/complexity/noImportantStyles: override third-party YouTube embed inline styles */
+  height: auto !important;
+  /* biome-ignore lint/complexity/noImportantStyles: override third-party YouTube embed inline styles */
+  max-width: none !important;
+  /* biome-ignore lint/complexity/noImportantStyles: override third-party YouTube embed inline styles */
+  width: 100% !important;
+}
+
+.watch-video-player__badge {
+  align-items: center;
+  background: rgb(0 0 0 / 70%);
+  border-radius: 4px;
+  color: #fafafa;
+  display: inline-flex;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  gap: 6px;
+  left: 12px;
+  padding: 6px 10px;
+  position: absolute;
+  text-decoration: none;
+  top: 12px;
+  z-index: 2;
+}
+
+.watch-video-player__badge-icon {
+  color: #ff0000;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+@media (min-width: 48em) {
+  .watch-video-player__badge {
+    font-size: 0.8125rem;
+    left: 16px;
+    padding: 8px 12px;
+    top: 16px;
+  }
+}

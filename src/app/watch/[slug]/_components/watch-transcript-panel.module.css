@@ -1,0 +1,222 @@
+.watch-transcript-panel {
+  background: #fafafa;
+  color: #0a0a0a;
+  padding: 32px 16px;
+}
+
+.watch-transcript-panel__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-inline: auto;
+  max-width: var(--watch-content-width, 720px);
+  width: 100%;
+}
+
+.watch-transcript-panel__intro {
+  gap: 8px;
+}
+
+.watch-transcript-panel__sync {
+  align-items: center;
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 12px 16px;
+}
+
+.watch-transcript-panel__sync--playing {
+  background: #f5f5f5;
+}
+
+.watch-transcript-panel__sync-left {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: 12px;
+  min-width: 0;
+}
+
+.watch-transcript-panel__sync-button {
+  align-items: center;
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  color: #0a0a0a;
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  height: 36px;
+  justify-content: center;
+  width: 36px;
+}
+
+.watch-transcript-panel__sync-button:focus-visible {
+  box-shadow: var(--focus-shadow);
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.watch-transcript-panel__sync-button--synced {
+  background: #0a0a0a;
+  border-color: #0a0a0a;
+  color: #fafafa;
+}
+
+.watch-transcript-panel__sync-icon {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+}
+
+.watch-transcript-panel__sync-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.watch-transcript-panel__sync-title {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.watch-transcript-panel__sync-hint {
+  color: #737373;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.watch-transcript-panel__status {
+  align-items: center;
+  background: #e5e5e5;
+  border-radius: 999px;
+  color: #525252;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  gap: 6px;
+  letter-spacing: 0.03125rem;
+  padding: 6px 10px;
+}
+
+.watch-transcript-panel__status--live {
+  background: #0a0a0a;
+  color: #fafafa;
+}
+
+.watch-transcript-panel__status-dot {
+  background: #22c55e;
+  border-radius: 999px;
+  flex-shrink: 0;
+  height: 6px;
+  width: 6px;
+}
+
+.watch-transcript-panel__list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.watch-transcript-panel__item {
+  margin: 0;
+}
+
+.watch-transcript-panel__paragraph {
+  align-items: end;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #e5e5e5;
+  color: inherit;
+  column-gap: 20px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  row-gap: 4px;
+  padding: 20px 24px;
+  scroll-margin-block: 32px;
+  text-align: left;
+  width: 100%;
+}
+
+.watch-transcript-panel__paragraph:focus-visible {
+  box-shadow: var(--focus-shadow);
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+  position: relative;
+  z-index: 1;
+}
+
+.watch-transcript-panel__paragraph--active {
+  background: #f5f5f5;
+  border-bottom-color: #0a0a0a;
+  border-left: 3px solid #0a0a0a;
+  padding-inline-start: 21px;
+}
+
+.watch-transcript-panel__timestamp {
+  color: #737373;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  grid-column: 1;
+  grid-row: 1;
+  letter-spacing: 0;
+}
+
+.watch-transcript-panel__paragraph--active .watch-transcript-panel__timestamp {
+  color: #0a0a0a;
+}
+
+.watch-transcript-panel__speaker {
+  color: #737373;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.watch-transcript-panel__paragraph--active .watch-transcript-panel__speaker {
+  color: #0a0a0a;
+}
+
+.watch-transcript-panel__text {
+  color: #525252;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  grid-column: 2;
+  grid-row: 2;
+  line-height: 1.7;
+}
+
+.watch-transcript-panel__paragraph--active .watch-transcript-panel__text {
+  color: #0a0a0a;
+}
+
+@media (min-width: 48em) {
+  .watch-transcript-panel {
+    padding: 48px 24px;
+  }
+}
+
+@media (min-width: 64.0625em) {
+  .watch-transcript-panel {
+    padding: 64px 48px;
+  }
+
+  .watch-transcript-panel__intro {
+    gap: 20px;
+  }
+}

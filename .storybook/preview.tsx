@@ -25,7 +25,7 @@ const siteViewports = {
 const preview: Preview = {
   decorators: [
     (Story) => (
-      <div className={`${fontVariables}`}>
+      <div className={fontVariables}>
         <Story />
       </div>
     ),
