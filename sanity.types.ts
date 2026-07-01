@@ -15,6 +15,20 @@
 export declare const internalGroqTypeReferenceTo: unique symbol;
 
 // Source: schema.json
+export type HostReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "host";
+};
+
+export type GuestReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "guest";
+};
+
 export type SanityImageAssetReference = {
   _ref: string;
   _type: "reference";
@@ -22,9 +36,66 @@ export type SanityImageAssetReference = {
   [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
 };
 
-export type Host = {
+export type Episode = {
   _id: string;
-  _type: "host";
+  _type: "episode";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  episodeNumber?: number;
+  title?: string;
+  slug?: Slug;
+  publishedAt?: string;
+  durationMinutes?: number;
+  hosts?: Array<
+    {
+      _key: string;
+    } & HostReference
+  >;
+  guests?: Array<
+    {
+      _key: string;
+    } & GuestReference
+  >;
+  artwork?: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  youtubeUrl?: string;
+  showNotes?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  transcript?: Array<{
+    start?: number;
+    speaker?: HostReference | GuestReference;
+    text?: string;
+    _type: "transcriptEntry";
+    _key: string;
+  }>;
+};
+
+export type Guest = {
+  _id: string;
+  _type: "guest";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -56,9 +127,9 @@ export type SanityImageHotspot = {
   width?: number;
 };
 
-export type Guest = {
+export type Host = {
   _id: string;
-  _type: "guest";
+  _type: "host";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -72,77 +143,6 @@ export type Guest = {
     alt?: string;
     _type: "image";
   };
-};
-
-export type GuestReference = {
-  _ref: string;
-  _type: "reference";
-  _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "guest";
-};
-
-export type HostReference = {
-  _ref: string;
-  _type: "reference";
-  _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "host";
-};
-
-export type Episode = {
-  _id: string;
-  _type: "episode";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  episodeNumber?: number;
-  title?: string;
-  slug?: Slug;
-  guests?: Array<
-    {
-      _key: string;
-    } & GuestReference
-  >;
-  hosts?: Array<
-    {
-      _key: string;
-    } & HostReference
-  >;
-  publishedAt?: string;
-  durationMinutes?: number;
-  artwork?: {
-    asset?: SanityImageAssetReference;
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
-  };
-  showNotes?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
-  youtubeUrl?: string;
-  transcript?: Array<{
-    start?: number;
-    speaker?: string;
-    text?: string;
-    _type: "transcriptEntry";
-    _key: string;
-  }>;
 };
 
 export type Slug = {
@@ -249,14 +249,14 @@ export type Geopoint = {
 };
 
 export type AllSanitySchemaTypes =
+  | HostReference
+  | GuestReference
   | SanityImageAssetReference
-  | Host
+  | Episode
+  | Guest
   | SanityImageCrop
   | SanityImageHotspot
-  | Guest
-  | GuestReference
-  | HostReference
-  | Episode
+  | Host
   | Slug
   | SanityImagePaletteSwatch
   | SanityImagePalette
@@ -293,7 +293,7 @@ export type EPISODES_PAGE_QUERY_RESULT = Array<{
 
 // Source: ../virtually-built/src/sanity/queries/episodes.ts
 // Variable: EPISODE_QUERY
-// Query: *[_type == "episode" && slug.current == $slug][0]{    _id,    episodeNumber,    title,    slug,    guests[]->{      _id,      name,      role,      avatar {        asset,        alt,        hotspot,        crop      }    },    publishedAt,    durationMinutes,    artwork {      asset,      alt,      hotspot,      crop    },    showNotes,    "showNotesExcerpt": pt::text(showNotes),    youtubeUrl,    transcript[]{      start,      speaker,      text    },    hosts[]->{      _id,      name,      role,      avatar {        asset,        alt,        hotspot,        crop      }    }  }
+// Query: *[_type == "episode" && slug.current == $slug][0]{    _id,    episodeNumber,    title,    slug,    guests[]->{      _id,      name,      role,      avatar {        asset,        alt,        hotspot,        crop      }    },    publishedAt,    durationMinutes,    artwork {      asset,      alt,      hotspot,      crop    },    showNotes,    "showNotesExcerpt": pt::text(showNotes),    youtubeUrl,    transcript[]{      start,      "speaker": speaker->name,      text    },    hosts[]->{      _id,      name,      role,      avatar {        asset,        alt,        hotspot,        crop      }    }  }
 export type EPISODE_QUERY_RESULT = {
   _id: string;
   episodeNumber: number | null;
@@ -407,6 +407,11 @@ export type RELATED_EPISODES_QUERY_RESULT = Array<{
 export type LATEST_EPISODE_SLUG_QUERY_RESULT = string | null;
 
 // Source: ../virtually-built/src/sanity/queries/episodes.ts
+// Variable: MAX_EPISODE_NUMBER_QUERY
+// Query: *[_type == "episode" && defined(episodeNumber)] | order(episodeNumber desc)[0].episodeNumber
+export type MAX_EPISODE_NUMBER_QUERY_RESULT = number | null;
+
+// Source: ../virtually-built/src/sanity/queries/episodes.ts
 // Variable: EPISODES_COUNT_QUERY
 // Query: count(*[_type == "episode" && defined(slug.current)])
 export type EPISODES_COUNT_QUERY_RESULT = number;
@@ -416,10 +421,11 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     '*[_type == "episode" && defined(slug.current)] | order(publishedAt desc) [$start...$end] {\n    _id,\n    episodeNumber,\n    title,\n    slug,\n    guests[]->{\n      _id,\n      name,\n      role\n    },\n    publishedAt,\n    durationMinutes,\n    artwork {\n      asset,\n      alt,\n      hotspot,\n      crop\n    },\n    "showNotes": pt::text(showNotes)\n  }': EPISODES_PAGE_QUERY_RESULT;
-    '*[_type == "episode" && slug.current == $slug][0]{\n    _id,\n    episodeNumber,\n    title,\n    slug,\n    guests[]->{\n      _id,\n      name,\n      role,\n      avatar {\n        asset,\n        alt,\n        hotspot,\n        crop\n      }\n    },\n    publishedAt,\n    durationMinutes,\n    artwork {\n      asset,\n      alt,\n      hotspot,\n      crop\n    },\n    showNotes,\n    "showNotesExcerpt": pt::text(showNotes),\n    youtubeUrl,\n    transcript[]{\n      start,\n      speaker,\n      text\n    },\n    hosts[]->{\n      _id,\n      name,\n      role,\n      avatar {\n        asset,\n        alt,\n        hotspot,\n        crop\n      }\n    }\n  }': EPISODE_QUERY_RESULT;
+    '*[_type == "episode" && slug.current == $slug][0]{\n    _id,\n    episodeNumber,\n    title,\n    slug,\n    guests[]->{\n      _id,\n      name,\n      role,\n      avatar {\n        asset,\n        alt,\n        hotspot,\n        crop\n      }\n    },\n    publishedAt,\n    durationMinutes,\n    artwork {\n      asset,\n      alt,\n      hotspot,\n      crop\n    },\n    showNotes,\n    "showNotesExcerpt": pt::text(showNotes),\n    youtubeUrl,\n    transcript[]{\n      start,\n      "speaker": speaker->name,\n      text\n    },\n    hosts[]->{\n      _id,\n      name,\n      role,\n      avatar {\n        asset,\n        alt,\n        hotspot,\n        crop\n      }\n    }\n  }': EPISODE_QUERY_RESULT;
     '*[_type == "episode" && slug.current == $slug][0]{\n    title,\n    episodeNumber,\n    publishedAt,\n    durationMinutes,\n    youtubeUrl,\n    "showNotesExcerpt": pt::text(showNotes),\n    artwork {\n      asset,\n      alt,\n      hotspot,\n      crop\n    },\n    guests[]->{\n      name\n    }\n  }': EPISODE_METADATA_QUERY_RESULT;
     '*[_type == "episode" && slug.current != $slug && episodeNumber in $numbers] | order(episodeNumber desc) {\n    _id,\n    episodeNumber,\n    title,\n    slug,\n    guests[]->{\n      _id,\n      name,\n      role\n    },\n    publishedAt,\n    durationMinutes,\n    artwork {\n      asset,\n      alt,\n      hotspot,\n      crop\n    },\n    "showNotes": pt::text(showNotes)\n  }': RELATED_EPISODES_QUERY_RESULT;
     '*[_type == "episode" && defined(slug.current)] | order(publishedAt desc)[0].slug.current': LATEST_EPISODE_SLUG_QUERY_RESULT;
+    '*[_type == "episode" && defined(episodeNumber)] | order(episodeNumber desc)[0].episodeNumber': MAX_EPISODE_NUMBER_QUERY_RESULT;
     'count(*[_type == "episode" && defined(slug.current)])': EPISODES_COUNT_QUERY_RESULT;
   }
 }
