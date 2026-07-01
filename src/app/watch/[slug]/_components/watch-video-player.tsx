@@ -1,9 +1,7 @@
 "use client";
 
 import { YouTubeEmbed } from "@next/third-parties/google";
-import Link from "next/link";
 import { type FC, useCallback, useEffect, useRef } from "react";
-import { FaYoutube } from "react-icons/fa";
 
 import { parseVideoId } from "@/lib/episodes/youtube-utils";
 import { useWatchPlayerActions } from "../_lib/use-watch-player";
@@ -150,18 +148,6 @@ export const WatchVideoPlayer: FC<WatchVideoPlayerProps> = ({ youtubeUrl }) => {
         params="enablejsapi=1"
         {...({ "js-api": true } as Record<string, boolean>)}
       />
-      <Link
-        href={youtubeUrl}
-        className={styles["watch-video-player__badge"]}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FaYoutube
-          aria-hidden
-          className={styles["watch-video-player__badge-icon"]}
-        />
-        Watch on YouTube
-      </Link>
     </div>
   );
 };
