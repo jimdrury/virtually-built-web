@@ -55,6 +55,18 @@
   line-height: 1.55;
 }
 
+.section-intro__body-row {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.section-intro__body-row .section-intro__body {
+  flex: 1;
+  min-width: 0;
+}
+
 @media (min-width: 48em) {
   .section-intro__body {
     font-size: 0.9375rem;

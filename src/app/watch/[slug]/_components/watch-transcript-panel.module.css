@@ -17,107 +17,75 @@
   gap: 8px;
 }
 
-.watch-transcript-panel__sync {
-  align-items: center;
-  background: #fafafa;
-  border: 1px solid #e5e5e5;
-  border-radius: 4px;
-  display: flex;
+.watch-transcript-panel__intro-body-row {
+  align-items: flex-start;
+  flex-direction: column;
   gap: 12px;
-  justify-content: space-between;
-  padding: 12px 16px;
 }
 
-.watch-transcript-panel__sync--playing {
-  background: #f5f5f5;
+@media (min-width: 48em) {
+  .watch-transcript-panel__intro-body-row {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
-.watch-transcript-panel__sync-left {
+.watch-transcript-panel__follow {
   align-items: center;
   display: flex;
-  flex: 1;
-  gap: 12px;
-  min-width: 0;
-}
-
-.watch-transcript-panel__sync-button {
-  align-items: center;
-  background: #fafafa;
-  border: 1px solid #e5e5e5;
-  border-radius: 4px;
-  color: #0a0a0a;
-  cursor: pointer;
-  display: inline-flex;
   flex-shrink: 0;
-  height: 36px;
-  justify-content: center;
+  gap: 10px;
+}
+
+.watch-transcript-panel__follow-label {
+  color: #525252;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.watch-transcript-panel__follow-switch {
+  background: #e5e5e5;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  flex-shrink: 0;
+  height: 20px;
+  padding: 2px;
+  position: relative;
   width: 36px;
 }
 
-.watch-transcript-panel__sync-button:focus-visible {
+.watch-transcript-panel__follow-switch:focus-visible {
   box-shadow: var(--focus-shadow);
   outline: var(--focus-outline);
   outline-offset: var(--focus-outline-offset);
 }
 
-.watch-transcript-panel__sync-button--synced {
+.watch-transcript-panel__follow-switch--on {
   background: #0a0a0a;
-  border-color: #0a0a0a;
-  color: #fafafa;
 }
 
-.watch-transcript-panel__sync-icon {
-  flex-shrink: 0;
-  font-size: 0.75rem;
-}
-
-.watch-transcript-panel__sync-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-}
-
-.watch-transcript-panel__sync-title {
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.watch-transcript-panel__sync-hint {
-  color: #737373;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.watch-transcript-panel__status {
-  align-items: center;
-  background: #e5e5e5;
+.watch-transcript-panel__follow-thumb {
+  background: #fafafa;
   border-radius: 999px;
-  color: #525252;
-  display: inline-flex;
-  flex-shrink: 0;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  gap: 6px;
-  letter-spacing: 0.03125rem;
-  padding: 6px 10px;
+  display: block;
+  height: 16px;
+  transition: transform 150ms ease;
+  width: 16px;
 }
 
-.watch-transcript-panel__status--live {
-  background: #0a0a0a;
-  color: #fafafa;
+.watch-transcript-panel__follow-switch--on
+  .watch-transcript-panel__follow-thumb {
+  transform: translateX(16px);
 }
 
-.watch-transcript-panel__status-dot {
-  background: #22c55e;
-  border-radius: 999px;
-  flex-shrink: 0;
-  height: 6px;
-  width: 6px;
+@media (prefers-reduced-motion: reduce) {
+  .watch-transcript-panel__follow-thumb {
+    transition: none;
+  }
 }
 
 .watch-transcript-panel__list {

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { FC } from "react";
+import type { FC, ReactNode } from "react";
 import { useId } from "react";
 
 import styles from "./section-intro.module.css";
@@ -8,6 +8,8 @@ export interface SectionIntroProps {
   eyebrow: string;
   title: string;
   body: string;
+  bodyAction?: ReactNode;
+  bodyRowClassNames?: string;
   titleId?: string;
   classNames?: string;
 }
@@ -16,6 +18,8 @@ export const SectionIntro: FC<SectionIntroProps> = ({
   eyebrow,
   title,
   body,
+  bodyAction,
+  bodyRowClassNames,
   titleId,
   classNames,
 }) => {
@@ -35,7 +39,16 @@ export const SectionIntro: FC<SectionIntroProps> = ({
       <h2 className={styles["section-intro__title"]} id={resolvedTitleId}>
         {title}
       </h2>
-      <p className={styles["section-intro__body"]}>{body}</p>
+      {bodyAction ? (
+        <div
+          className={clsx(styles["section-intro__body-row"], bodyRowClassNames)}
+        >
+          <p className={styles["section-intro__body"]}>{body}</p>
+          {bodyAction}
+        </div>
+      ) : (
+        <p className={styles["section-intro__body"]}>{body}</p>
+      )}
     </header>
   );
 };

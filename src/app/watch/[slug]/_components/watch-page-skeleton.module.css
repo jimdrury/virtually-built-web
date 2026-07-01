@@ -57,10 +57,17 @@
 
 .watch-page-skeleton__transcript {
   background: #fafafa;
+  padding: 32px 16px;
+  width: 100%;
+}
+
+.watch-page-skeleton__transcript-inner {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 32px 16px;
+  margin-inline: auto;
+  max-width: var(--watch-content-width);
+  width: 100%;
 }
 
 .watch-page-skeleton__bar {
