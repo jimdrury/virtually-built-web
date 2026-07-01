@@ -1,12 +1,12 @@
+import clsx from "clsx";
 import Link from "next/link";
 import type { FC } from "react";
-
 import styles from "./episodes-pagination.module.css";
 
-type EpisodesPaginationProps = {
+export interface EpisodesPaginationProps {
   currentPage: number;
   totalPages: number;
-};
+}
 
 type PaginationItem = number | "ellipsis";
 
@@ -71,7 +71,10 @@ export const EpisodesPagination: FC<EpisodesPaginationProps> = ({
             ) : item === currentPage ? (
               <span
                 aria-current="page"
-                className={`${styles["episodes-pagination__page"]} ${styles["episodes-pagination__page--current"]}`}
+                className={clsx(
+                  styles["episodes-pagination__page"],
+                  styles["episodes-pagination__page--current"],
+                )}
               >
                 {item}
               </span>

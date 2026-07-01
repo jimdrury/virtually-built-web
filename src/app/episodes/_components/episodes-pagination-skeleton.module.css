@@ -1,0 +1,43 @@
+.episodes-pagination-skeleton {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.episodes-pagination-skeleton__item {
+  width: 1.875rem;
+  height: 1.875rem;
+  border-radius: 6px;
+  background: #262626;
+}
+
+.episodes-pagination-skeleton__item--active {
+  background: #333333;
+}
+
+@media (min-width: 48em) {
+  .episodes-pagination-skeleton {
+    gap: 6px;
+  }
+
+  .episodes-pagination-skeleton__item {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+@media (min-width: 64.0625em) {
+  .episodes-pagination-skeleton {
+    gap: 8px;
+  }
+
+  .episodes-pagination-skeleton__item {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}

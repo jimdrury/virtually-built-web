@@ -20,6 +20,11 @@ export interface DynamicFetchOptions {
   stega: boolean;
 }
 
+export const PUBLISHED_FETCH_OPTIONS: DynamicFetchOptions = {
+  perspective: "published",
+  stega: false,
+};
+
 export async function getDynamicFetchOptions(): Promise<DynamicFetchOptions> {
   const { isEnabled: isDraftMode } = await draftMode();
 

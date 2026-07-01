@@ -5,6 +5,7 @@ import type { HomeHeroProps } from "@/components/content/home-hero";
 import type { PlatformLinkItem } from "@/components/content/platform-links";
 import type { SpeakerItem } from "@/components/content/speaker-list";
 import type { TopicItem } from "@/components/content/topics-section";
+import type { EpisodeListItem } from "@/sanity/format-episode";
 
 export const sampleSpeakers: SpeakerItem[] = [
   {
@@ -18,6 +19,30 @@ export const sampleSpeakers: SpeakerItem[] = [
     role: "Co-host",
   },
 ];
+
+export const sampleEpisodeListItem: EpisodeListItem = {
+  _id: "episode-042",
+  episodeNumber: 42,
+  title: "Design systems at scale",
+  slug: {
+    _type: "slug",
+    current: "episode-011-design-systems-at-scale",
+  },
+  guests: [{ _id: "guest-1", name: "Sam Rivera", role: null }],
+  publishedAt: "2026-03-12T00:00:00.000Z",
+  durationMinutes: 48,
+  artwork: {
+    asset: {
+      _type: "reference",
+      _ref: "image-Tb9Ew8CXIwaY6R1kjMvI0uRR-2000x3000-jpg",
+    },
+    alt: "Episode artwork",
+    hotspot: null,
+    crop: null,
+  },
+  showNotes:
+    "Sam joins us to explore token architecture, component governance, and keeping design systems useful as products grow.",
+};
 
 export const sampleEpisode: EpisodeSummary = {
   number: "042",
