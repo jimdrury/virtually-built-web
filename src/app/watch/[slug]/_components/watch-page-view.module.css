@@ -53,6 +53,30 @@
   width: 100%;
 }
 
+@media (max-width: 47.9375em) {
+  .watch-page__stage-anchor {
+    background: #0a0a0a;
+    padding: var(--site-padding-inline);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .watch-page__stage-reserve {
+    display: none;
+  }
+
+  .watch-page__stage {
+    inset-block-start: unset;
+    inset-inline-start: unset;
+    position: relative;
+  }
+
+  .watch-page__stage-trim {
+    display: none;
+  }
+}
+
 @media (min-width: 48em) and (max-width: 63.9375em) {
   .watch-page__stage--stuck,
   .watch-page__stage--anchored-bottom {

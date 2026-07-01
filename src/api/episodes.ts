@@ -11,6 +11,7 @@ import {
   EPISODE_QUERY,
   EPISODES_COUNT_QUERY,
   LATEST_EPISODE_SLUG_QUERY,
+  MAX_EPISODE_NUMBER_QUERY,
   RELATED_EPISODES_QUERY,
 } from "@/sanity/queries/episodes";
 
@@ -139,12 +140,25 @@ export async function getLatestEpisodeSlug(
   return data;
 }
 
+export async function getMaxEpisodeNumber(
+  options: DynamicFetchOptions = PUBLISHED_FETCH_OPTIONS,
+) {
+  const { data } = await episodeSanityFetch({
+    cacheKeyParts: ["max-episode-number"],
+    query: MAX_EPISODE_NUMBER_QUERY,
+    options,
+  });
+
+  return typeof data === "number" ? data : undefined;
+}
+
 export async function getRelatedEpisodes(
   episodeNumber: number,
   slug: string,
   options: DynamicFetchOptions = PUBLISHED_FETCH_OPTIONS,
 ) {
-  const numbers = getRelatedEpisodeNumbers(episodeNumber);
+  const maxEpisodeNumber = await getMaxEpisodeNumber(options);
+  const numbers = getRelatedEpisodeNumbers(episodeNumber, 4, maxEpisodeNumber);
 
   if (numbers.length === 0) {
     return [];

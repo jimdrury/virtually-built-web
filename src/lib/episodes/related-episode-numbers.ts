@@ -1,11 +1,17 @@
 export const getRelatedEpisodeNumbers = (
   episodeNumber: number,
   maxRelated = 4,
+  maxEpisodeNumber?: number,
 ): number[] => {
+  const lowerBound = 1;
+  const upperBound = maxEpisodeNumber ?? Number.POSITIVE_INFINITY;
+
   const lower = [episodeNumber - 2, episodeNumber - 1].filter(
-    (number) => number >= 1,
+    (number) => number >= lowerBound,
   );
-  const higher = [episodeNumber + 1, episodeNumber + 2];
+  const higher = [episodeNumber + 1, episodeNumber + 2].filter(
+    (number) => number <= upperBound,
+  );
   const numbers = [...lower, ...higher].filter(
     (number) => number !== episodeNumber,
   );
@@ -18,7 +24,7 @@ export const getRelatedEpisodeNumbers = (
   const padFromLower: number[] = [];
   let cursor = episodeNumber - 3;
 
-  while (padFromLower.length < needed && cursor >= 1) {
+  while (padFromLower.length < needed && cursor >= lowerBound) {
     if (!numbers.includes(cursor) && cursor !== episodeNumber) {
       padFromLower.unshift(cursor);
     }
@@ -36,7 +42,7 @@ export const getRelatedEpisodeNumbers = (
   const padFromHigher: number[] = [];
   cursor = episodeNumber + 3;
 
-  while (padFromHigher.length < stillNeeded) {
+  while (padFromHigher.length < stillNeeded && cursor <= upperBound) {
     if (!combined.includes(cursor) && cursor !== episodeNumber) {
       padFromHigher.push(cursor);
     }

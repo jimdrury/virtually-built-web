@@ -59,7 +59,7 @@ export const sampleEpisodeDetail: NonNullable<
   ],
   showNotesExcerpt:
     "Sam joins us to explore token architecture.\n\nWe also discuss governance and rollout.",
-  youtubeUrl: "https://www.youtube.com/watch?v=Bgltju_XaEY",
+  youtubeUrl: "https://www.youtube.com/watch?v=Bp2ai2MD4Mk",
   transcript: [
     {
       start: 0,
