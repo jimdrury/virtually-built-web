@@ -30,7 +30,7 @@ export const EPISODE_QUERY = defineQuery(
     youtubeUrl,
     transcript[]{
       start,
-      speaker,
+      "speaker": speaker->name,
       text
     },
     hosts[]->{
