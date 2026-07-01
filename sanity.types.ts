@@ -135,6 +135,14 @@ export type Episode = {
     _type: "block";
     _key: string;
   }>;
+  youtubeUrl?: string;
+  transcript?: Array<{
+    start?: number;
+    speaker?: string;
+    text?: string;
+    _type: "transcriptEntry";
+    _key: string;
+  }>;
 };
 
 export type Slug = {
@@ -328,7 +336,7 @@ export type EPISODE_QUERY_RESULT = {
     _type: "block";
     _key: string;
   }> | null;
-  showNotesExcerpt: string | null;
+  showNotesExcerpt: string;
   youtubeUrl: string | null;
   transcript: Array<{
     start: number | null;
@@ -357,7 +365,7 @@ export type EPISODE_METADATA_QUERY_RESULT = {
   publishedAt: string | null;
   durationMinutes: number | null;
   youtubeUrl: string | null;
-  showNotesExcerpt: string | null;
+  showNotesExcerpt: string;
   artwork: {
     asset: SanityImageAssetReference | null;
     alt: string | null;
