@@ -1,4 +1,5 @@
 import { LuBoxes, LuSparkles } from "react-icons/lu";
+import type { getEpisode } from "@/api/episodes";
 import type { EpisodeSummary } from "@/components/content/episode-card";
 import type { HeroTeaserProps } from "@/components/content/hero-teaser";
 import type { HomeHeroProps } from "@/components/content/home-hero";
@@ -19,6 +20,60 @@ export const sampleSpeakers: SpeakerItem[] = [
     role: "Co-host",
   },
 ];
+
+export const sampleEpisodeDetail: NonNullable<
+  Awaited<ReturnType<typeof getEpisode>>
+> = {
+  _id: "episode-042",
+  episodeNumber: 42,
+  title: "Design systems at scale",
+  slug: {
+    _type: "slug",
+    current: "episode-011-design-systems-at-scale",
+  },
+  guests: [{ _id: "guest-1", name: "Sam Rivera", role: null, avatar: null }],
+  publishedAt: "2026-03-12T00:00:00.000Z",
+  durationMinutes: 48,
+  artwork: {
+    asset: {
+      _type: "reference",
+      _ref: "image-Tb9Ew8CXIwaY6R1kjMvI0uRR-2000x3000-jpg",
+    },
+    alt: "Episode artwork",
+    hotspot: null,
+    crop: null,
+  },
+  showNotes: [
+    {
+      _type: "block",
+      _key: "notes-1",
+      style: "normal",
+      children: [
+        {
+          _type: "span",
+          _key: "notes-1-span",
+          text: "Sam joins us to explore token architecture.",
+        },
+      ],
+    },
+  ],
+  showNotesExcerpt:
+    "Sam joins us to explore token architecture.\n\nWe also discuss governance and rollout.",
+  youtubeUrl: "https://www.youtube.com/watch?v=Bgltju_XaEY",
+  transcript: [
+    {
+      start: 0,
+      speaker: "Alex Chen",
+      text: "Welcome back to Virtually Built.",
+    },
+    {
+      start: 45,
+      speaker: "Sam Rivera",
+      text: "Thanks for having me on the show.",
+    },
+  ],
+  hosts: [{ _id: "host-1", name: "Alex Chen", role: "Host", avatar: null }],
+};
 
 export const sampleEpisodeListItem: EpisodeListItem = {
   _id: "episode-042",

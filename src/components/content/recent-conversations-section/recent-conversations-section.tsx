@@ -17,6 +17,7 @@ export interface RecentConversationsSectionProps {
   title?: string;
   archiveHref?: ComponentProps<typeof Button>["href"];
   archiveLabel?: string;
+  showArchiveAction?: boolean;
   classNames?: string;
 }
 
@@ -33,9 +34,15 @@ export const RecentConversationsSection: FC<
   title = DEFAULT_TITLE,
   archiveHref = DEFAULT_ARCHIVE_HREF,
   archiveLabel = DEFAULT_ARCHIVE_LABEL,
+  showArchiveAction = true,
   classNames,
 }) => {
   const titleId = useId();
+  const archiveAction = showArchiveAction ? (
+    <Button variant="light" href={archiveHref}>
+      {archiveLabel}
+    </Button>
+  ) : undefined;
 
   return (
     <Section
@@ -49,11 +56,7 @@ export const RecentConversationsSection: FC<
         eyebrow={eyebrow}
         title={title}
         titleId={titleId}
-        action={
-          <Button variant="light" href={archiveHref}>
-            {archiveLabel}
-          </Button>
-        }
+        action={archiveAction}
       />
       <ul className={styles["recent-conversations-section__grid"]}>
         {episodes.map((episode) => (
@@ -65,13 +68,15 @@ export const RecentConversationsSection: FC<
           </li>
         ))}
       </ul>
-      <Button
-        variant="light"
-        href={archiveHref}
-        classNames={styles["recent-conversations-section__mobile-cta"]}
-      >
-        {archiveLabel}
-      </Button>
+      {showArchiveAction ? (
+        <Button
+          variant="light"
+          href={archiveHref}
+          classNames={styles["recent-conversations-section__mobile-cta"]}
+        >
+          {archiveLabel}
+        </Button>
+      ) : null}
     </Section>
   );
 };

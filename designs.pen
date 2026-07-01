@@ -1489,13 +1489,6 @@
               "width": "fill_container"
             },
             {
-              "id": "GUlrT",
-              "type": "ref",
-              "ref": "w7fp2j",
-              "name": "Episode Meta",
-              "width": 960
-            },
-            {
               "id": "r3pDS0",
               "type": "ref",
               "ref": "RWVJS",
@@ -1519,6 +1512,15 @@
           ],
           "alignItems": "center",
           "children": [
+            {
+              "id": "GUlrT",
+              "type": "ref",
+              "ref": "w7fp2j",
+              "name": "Episode Meta",
+              "width": 720,
+              "x": 360,
+              "y": 0
+            },
             {
               "type": "frame",
               "id": "klHzg",
@@ -1642,13 +1644,6 @@
               "width": "fill_container"
             },
             {
-              "id": "JFLtM",
-              "type": "ref",
-              "ref": "q9kxlt",
-              "name": "Episode Meta",
-              "width": "fill_container"
-            },
-            {
               "id": "lgQk9",
               "type": "ref",
               "ref": "WTMY7",
@@ -1672,6 +1667,13 @@
           ],
           "alignItems": "center",
           "children": [
+            {
+              "id": "JFLtM",
+              "type": "ref",
+              "ref": "q9kxlt",
+              "name": "Episode Meta",
+              "width": "fill_container"
+            },
             {
               "type": "frame",
               "id": "PCgVi",
@@ -1795,13 +1797,6 @@
               "width": "fill_container"
             },
             {
-              "id": "OyMgb",
-              "type": "ref",
-              "ref": "QTdzq",
-              "name": "Episode Meta",
-              "width": "fill_container"
-            },
-            {
               "id": "okl31",
               "type": "ref",
               "ref": "MOaKS",
@@ -1825,6 +1820,13 @@
           ],
           "alignItems": "center",
           "children": [
+            {
+              "id": "OyMgb",
+              "type": "ref",
+              "ref": "QTdzq",
+              "name": "Episode Meta",
+              "width": "fill_container"
+            },
             {
               "type": "frame",
               "id": "UVTCD",
@@ -1883,7 +1885,17 @@
           "type": "ref",
           "ref": "d4n9mz",
           "name": "Transcript Section",
-          "width": "fill_container"
+          "width": "fill_container",
+          "descendants": {
+            "P9OEe9/ZNxHK": {
+              "flipX": false,
+              "flipY": false,
+              "width": "fill_container",
+              "height": "fit_content",
+              "x": 0,
+              "y": 570
+            }
+          }
         },
         {
           "id": "BIk0z",
@@ -4700,6 +4712,7 @@
             24,
             0
           ],
+          "alignItems": "center",
           "children": [
             {
               "id": "BpnZ3",
@@ -4788,17 +4801,37 @@
               ]
             },
             {
-              "type": "text",
-              "id": "xhstH",
-              "name": "Paragraph Text",
-              "fill": "#525252",
-              "textGrowth": "fixed-width",
+              "type": "frame",
+              "id": "MCYtL",
+              "name": "Content Column",
               "width": "fill_container",
-              "content": "Welcome to Virtually Built. Today we're talking about durability in distributed systems — what it means, why it matters, and how teams get it wrong.",
-              "lineHeight": 1.7,
-              "fontFamily": "Geist",
-              "fontSize": 15,
-              "fontWeight": "normal"
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "rkq3x",
+                  "name": "Speaker Name",
+                  "fill": "#737373",
+                  "content": "Jim Drury",
+                  "fontFamily": "Geist",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "xhstH",
+                  "name": "Paragraph Text",
+                  "fill": "#525252",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Welcome to Virtually Built. Today we're talking about durability in distributed systems — what it means, why it matters, and how teams get it wrong.",
+                  "lineHeight": 1.7,
+                  "fontFamily": "Geist",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
             }
           ]
         },
@@ -4846,17 +4879,37 @@
               ]
             },
             {
-              "type": "text",
-              "id": "FwFsX",
-              "name": "Paragraph Text",
-              "fill": "#0a0a0a",
-              "textGrowth": "fixed-width",
+              "type": "frame",
+              "id": "gurZ8",
+              "name": "Content Column",
               "width": "fill_container",
-              "content": "The biggest gap I see is treating idempotency as an implementation detail rather than a design constraint. If your handlers aren't idempotent, your retries will corrupt state.",
-              "lineHeight": 1.7,
-              "fontFamily": "Geist",
-              "fontSize": 15,
-              "fontWeight": "normal"
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Bl9jb",
+                  "name": "Speaker Name",
+                  "fill": "#0a0a0a",
+                  "content": "Sarah Chen",
+                  "fontFamily": "Geist",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "FwFsX",
+                  "name": "Paragraph Text",
+                  "fill": "#0a0a0a",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "The biggest gap I see is treating idempotency as an implementation detail rather than a design constraint. If your handlers aren't idempotent, your retries will corrupt state.",
+                  "lineHeight": 1.7,
+                  "fontFamily": "Geist",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
             },
             {
               "type": "frame",
@@ -4887,8 +4940,8 @@
                 "d5mMK7": {
                   "content": "00:00"
                 },
-                "xhstH": {
-                  "content": "Welcome to Virtually Built. Today we're talking about durability in distributed systems — what it means, why it matters, and how teams get it wrong."
+                "rkq3x": {
+                  "content": "Jim Drury"
                 }
               }
             },
@@ -4902,8 +4955,8 @@
                 "d5mMK7": {
                   "content": "02:14"
                 },
-                "xhstH": {
-                  "content": "When we say durability, we're not just talking about data surviving a crash. We're talking about the system's ability to remain correct and recoverable when components fail independently."
+                "rkq3x": {
+                  "content": "Jim Drury"
                 }
               }
             },
@@ -4917,8 +4970,8 @@
                 "d5mMK7": {
                   "content": "08:42"
                 },
-                "xhstH": {
-                  "content": "The saga pattern is one approach, but it's not a silver bullet. Sarah, you've shipped sagas at scale — what do teams underestimate?"
+                "rkq3x": {
+                  "content": "Jim Drury"
                 }
               }
             },
@@ -4932,8 +4985,8 @@
                 "tJ3kS": {
                   "content": "15:30"
                 },
-                "FwFsX": {
-                  "content": "The biggest gap I see is treating idempotency as an implementation detail rather than a design constraint. If your handlers aren't idempotent, your retries will corrupt state."
+                "Bl9jb": {
+                  "content": "Sarah Chen"
                 }
               }
             },
@@ -4947,8 +5000,8 @@
                 "d5mMK7": {
                   "content": "22:18"
                 },
-                "xhstH": {
-                  "content": "That's a great point about organisational habits. Durability isn't just an architecture diagram — it's how your on-call runbooks, your deploy process, and your testing culture reinforce the same guarantees."
+                "rkq3x": {
+                  "content": "Jim Drury"
                 }
               }
             },
@@ -4962,8 +5015,8 @@
                 "d5mMK7": {
                   "content": "31:05"
                 },
-                "xhstH": {
-                  "content": "We'll leave links in the show notes for the papers and blog posts we referenced. Thanks for listening — see you in two weeks."
+                "rkq3x": {
+                  "content": "Jim Drury"
                 }
               }
             }
@@ -5588,7 +5641,7 @@
           "id": "w7fp2j",
           "name": "Episode Meta/Desktop",
           "reusable": true,
-          "width": 960,
+          "width": 720,
           "layout": "vertical",
           "gap": 12,
           "alignItems": "center",
@@ -7962,11 +8015,18 @@
                       "letterSpacing": -0.5
                     },
                     "NVDzH": {
-                      "content": "Click any paragraph to jump to that moment in the video. Timestamps sync as playback progresses.",
+                      "content": "Click any paragraph to jump to that moment. Pause follow if you want to read ahead without losing your place.",
                       "fontSize": 14,
                       "lineHeight": 1.5
                     }
                   }
+                },
+                {
+                  "id": "f9YhEP",
+                  "type": "ref",
+                  "ref": "sGWRD",
+                  "name": "Transcript Sync Control",
+                  "width": "fill_container"
                 },
                 {
                   "id": "aiXnj",
@@ -7983,7 +8043,7 @@
               "name": "Implementation Note",
               "width": 280,
               "height": 0,
-              "content": "Transcript paragraphs map to video timestamps via data-start (seconds). Clicking a paragraph seeks the YouTube player; active paragraph updates on timeupdate. Schema: { start: number, text: string }[]"
+              "content": "Transcript paragraphs map to video timestamps via data-start (seconds). Each entry includes a speaker name. Clicking a paragraph seeks the YouTube player; active paragraph updates on timeupdate. Play/pause toggles auto-scroll follow — when playing, the list scrolls to keep the active paragraph in view. Schema: { start: number, speaker: string, text: string }[]; syncFollow: boolean."
             }
           ]
         },
@@ -8048,13 +8108,20 @@
                       "fill": "#737373",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Click any paragraph to jump to that moment in the video. Timestamps sync as playback progresses.",
+                      "content": "Click any paragraph to jump to that moment. Pause follow if you want to read ahead without losing your place.",
                       "lineHeight": 1.5,
                       "fontFamily": "Geist",
                       "fontSize": 14,
                       "fontWeight": "normal"
                     }
                   ]
+                },
+                {
+                  "id": "VDMUz",
+                  "type": "ref",
+                  "ref": "sGWRD",
+                  "name": "Transcript Sync Control",
+                  "width": "fill_container"
                 },
                 {
                   "id": "r4DUi",
@@ -8128,13 +8195,20 @@
                       "fill": "#737373",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Click any paragraph to jump to that moment in the video. Timestamps sync as playback progresses.",
+                      "content": "Click any paragraph to jump to that moment. Pause follow if you want to read ahead without losing your place.",
                       "lineHeight": 1.5,
                       "fontFamily": "Geist",
                       "fontSize": 14,
                       "fontWeight": "normal"
                     }
                   ]
+                },
+                {
+                  "id": "yhi1J",
+                  "type": "ref",
+                  "ref": "sGWRD",
+                  "name": "Transcript Sync Control",
+                  "width": "fill_container"
                 },
                 {
                   "id": "P9OEe9",
@@ -8318,6 +8392,444 @@
                   "content": "Subscribe"
                 }
               }
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "itVRp",
+          "name": "Episode Card Skeleton/Desktop",
+          "reusable": true,
+          "clip": true,
+          "width": 320,
+          "fill": "#0a0a0a",
+          "cornerRadius": 8,
+          "stroke": "#ffffff1a",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "NmNGS",
+              "name": "Thumbnail Skeleton",
+              "width": "fill_container",
+              "height": 160,
+              "fill": "#262626"
+            },
+            {
+              "type": "frame",
+              "id": "n7ECJ5",
+              "name": "Card Body",
+              "width": "fill_container",
+              "fill": "#171717",
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 20,
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "TGRUP",
+                  "name": "Episode Num Bar",
+                  "fill": "#262626",
+                  "width": 32,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "mJ5gx",
+                  "name": "Title Bar 1",
+                  "fill": "#262626",
+                  "width": "fill_container",
+                  "height": 16
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "Cwv7P",
+                  "name": "Title Bar 2",
+                  "fill": "#262626",
+                  "width": 200,
+                  "height": 16
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "Mw2ws",
+                  "name": "Show Notes Bar 1",
+                  "fill": "#1f1f1f",
+                  "width": "fill_container",
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "m5n0ox",
+                  "name": "Show Notes Bar 2",
+                  "fill": "#1f1f1f",
+                  "width": "fill_container",
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "AbUdn",
+                  "name": "Guest Bar",
+                  "fill": "#1f1f1f",
+                  "width": 100,
+                  "height": 13
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "j1Agz",
+              "name": "Card Bottom",
+              "width": "fill_container",
+              "fill": "#0a0a0a",
+              "stroke": "#ffffff1a",
+              "strokeWidth": {
+                "top": 1
+              },
+              "strokeAlignment": "inner",
+              "padding": [
+                12,
+                20
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "U6JC5",
+                  "name": "Duration Bar",
+                  "fill": "#262626",
+                  "width": 120,
+                  "height": 12
+                },
+                {
+                  "type": "ellipse",
+                  "id": "Opdpa",
+                  "name": "Play Icon Skeleton",
+                  "fill": "#262626",
+                  "width": 16,
+                  "height": 16
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "d43E3",
+          "name": "Episode Card Skeleton/Tablet",
+          "reusable": true,
+          "clip": true,
+          "width": 320,
+          "fill": "#0a0a0a",
+          "cornerRadius": 8,
+          "stroke": "#ffffff1a",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "qzPiC",
+              "name": "Thumbnail Skeleton",
+              "width": "fill_container",
+              "height": 140,
+              "fill": "#262626"
+            },
+            {
+              "type": "frame",
+              "id": "ZRZqd",
+              "name": "Card Body",
+              "width": "fill_container",
+              "fill": "#171717",
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "euYPw",
+                  "name": "Episode Num Bar",
+                  "fill": "#262626",
+                  "width": 28,
+                  "height": 11
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "KMK0K",
+                  "name": "Title Bar 1",
+                  "fill": "#262626",
+                  "width": "fill_container",
+                  "height": 14
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "N8oQPS",
+                  "name": "Title Bar 2",
+                  "fill": "#262626",
+                  "width": 200,
+                  "height": 14
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "wDb7r",
+                  "name": "Show Notes Bar 1",
+                  "fill": "#1f1f1f",
+                  "width": "fill_container",
+                  "height": 11
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "EmhDi",
+                  "name": "Show Notes Bar 2",
+                  "fill": "#1f1f1f",
+                  "width": "fill_container",
+                  "height": 11
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "RW2QX",
+                  "name": "Guest Bar",
+                  "fill": "#1f1f1f",
+                  "width": 90,
+                  "height": 12
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VcO2z",
+              "name": "Card Bottom",
+              "width": "fill_container",
+              "fill": "#0a0a0a",
+              "stroke": "#ffffff1a",
+              "strokeWidth": {
+                "top": 1
+              },
+              "strokeAlignment": "inner",
+              "padding": [
+                10,
+                16
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "S1peGa",
+                  "name": "Duration Bar",
+                  "fill": "#262626",
+                  "width": 110,
+                  "height": 11
+                },
+                {
+                  "type": "ellipse",
+                  "id": "lkSWr",
+                  "name": "Play Icon Skeleton",
+                  "fill": "#262626",
+                  "width": 14,
+                  "height": 14
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ACVDC",
+          "name": "Episode Card Skeleton/Mobile",
+          "reusable": true,
+          "clip": true,
+          "width": 320,
+          "fill": "#0a0a0a",
+          "cornerRadius": 8,
+          "stroke": "#ffffff1a",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "K4ivX0",
+              "name": "Thumbnail Skeleton",
+              "width": "fill_container",
+              "height": 120,
+              "fill": "#262626"
+            },
+            {
+              "type": "frame",
+              "id": "JnVAR",
+              "name": "Card Body",
+              "width": "fill_container",
+              "fill": "#171717",
+              "layout": "vertical",
+              "gap": 4,
+              "padding": 12,
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "D5xdRW",
+                  "name": "Episode Num Bar",
+                  "fill": "#262626",
+                  "width": 24,
+                  "height": 10
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "R3K3e1",
+                  "name": "Title Bar 1",
+                  "fill": "#262626",
+                  "width": "fill_container",
+                  "height": 13
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "CyrqG",
+                  "name": "Title Bar 2",
+                  "fill": "#262626",
+                  "width": 200,
+                  "height": 13
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "K3pMl",
+                  "name": "Show Notes Bar 1",
+                  "fill": "#1f1f1f",
+                  "width": "fill_container",
+                  "height": 10
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "CNl0x",
+                  "name": "Show Notes Bar 2",
+                  "fill": "#1f1f1f",
+                  "width": "fill_container",
+                  "height": 10
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "d8gbat",
+                  "name": "Guest Bar",
+                  "fill": "#1f1f1f",
+                  "width": 80,
+                  "height": 11
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "sfPaQ",
+              "name": "Card Bottom",
+              "width": "fill_container",
+              "fill": "#0a0a0a",
+              "stroke": "#ffffff1a",
+              "strokeWidth": {
+                "top": 1
+              },
+              "strokeAlignment": "inner",
+              "padding": [
+                10,
+                12
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "Wn2cf",
+                  "name": "Duration Bar",
+                  "fill": "#262626",
+                  "width": 100,
+                  "height": 10
+                },
+                {
+                  "type": "ellipse",
+                  "id": "I5N8HS",
+                  "name": "Play Icon Skeleton",
+                  "fill": "#262626",
+                  "width": 12,
+                  "height": 12
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "cx7c4",
+          "name": "Pagination Skeleton/Dark",
+          "reusable": true,
+          "width": 1344,
+          "gap": 8,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 6,
+              "id": "KIAVy",
+              "name": "Page 1 Skeleton",
+              "fill": "#333333",
+              "width": 36,
+              "height": 36
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 6,
+              "id": "NO9f8",
+              "name": "Page 2 Skeleton",
+              "fill": "#262626",
+              "width": 36,
+              "height": 36
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 6,
+              "id": "M31eWi",
+              "name": "Page 3 Skeleton",
+              "fill": "#262626",
+              "width": 36,
+              "height": 36
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 6,
+              "id": "WLSlf",
+              "name": "Page 4 Skeleton",
+              "fill": "#262626",
+              "width": 36,
+              "height": 36
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 6,
+              "id": "O8igf",
+              "name": "Page 5 Skeleton",
+              "fill": "#262626",
+              "width": 36,
+              "height": 36
             }
           ]
         }
@@ -8619,6 +9131,802 @@
                   "content": "Different Models and Modalities"
                 }
               }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "kjuGt",
+      "x": -378,
+      "y": 5316,
+      "name": "Episodes Loading — Desktop",
+      "clip": true,
+      "width": 1440,
+      "fill": "#fafafa",
+      "layout": "vertical",
+      "children": [
+        {
+          "id": "y9sGx",
+          "type": "ref",
+          "ref": "TxJlm",
+          "width": "fill_container",
+          "name": "Header"
+        },
+        {
+          "id": "emqwm",
+          "type": "ref",
+          "ref": "bOu9J",
+          "width": "fill_container",
+          "name": "Page Hero"
+        },
+        {
+          "type": "frame",
+          "id": "UkYWZ",
+          "name": "Episodes Main",
+          "width": "fill_container",
+          "fill": "#0a0a0a",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": 48,
+          "children": [
+            {
+              "type": "frame",
+              "id": "pXwAn",
+              "name": "Episode Grid",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "uDY5R",
+                  "name": "Grid Row 1",
+                  "width": "fill_container",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "id": "a8MC6",
+                      "type": "ref",
+                      "ref": "itVRp",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 1"
+                    },
+                    {
+                      "id": "v6l1K3",
+                      "type": "ref",
+                      "ref": "itVRp",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 2"
+                    },
+                    {
+                      "id": "Y87tb",
+                      "type": "ref",
+                      "ref": "itVRp",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 3"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "u9nmZd",
+                  "name": "Grid Row 2",
+                  "width": "fill_container",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "id": "gaSC6",
+                      "type": "ref",
+                      "ref": "itVRp",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 4"
+                    },
+                    {
+                      "id": "YeoPW",
+                      "type": "ref",
+                      "ref": "itVRp",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 5"
+                    },
+                    {
+                      "id": "TyXN3",
+                      "type": "ref",
+                      "ref": "itVRp",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 6"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "tkzut",
+                  "name": "Grid Row 3",
+                  "width": "fill_container",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "id": "vjqwI",
+                      "type": "ref",
+                      "ref": "itVRp",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 7"
+                    },
+                    {
+                      "id": "Y5TLOU",
+                      "type": "ref",
+                      "ref": "itVRp",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 8"
+                    },
+                    {
+                      "id": "oNzdi",
+                      "type": "ref",
+                      "ref": "itVRp",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 9"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Y5edr",
+                  "name": "Grid Row 4",
+                  "width": "fill_container",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "id": "MHIG6",
+                      "type": "ref",
+                      "ref": "itVRp",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 10"
+                    },
+                    {
+                      "id": "A4zwqm",
+                      "type": "ref",
+                      "ref": "itVRp",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 11"
+                    },
+                    {
+                      "id": "h8gLiz",
+                      "type": "ref",
+                      "ref": "itVRp",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 12"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "CNq0U",
+              "type": "ref",
+              "ref": "cx7c4",
+              "width": "fill_container",
+              "name": "Pagination Skeleton"
+            }
+          ]
+        },
+        {
+          "id": "S0bbv",
+          "type": "ref",
+          "ref": "QpR0K",
+          "width": "fill_container",
+          "name": "Subscribe Section"
+        },
+        {
+          "id": "D79cI",
+          "type": "ref",
+          "ref": "S1C2z",
+          "width": "fill_container",
+          "name": "Footer"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "GupTC",
+      "x": 1142,
+      "y": 5316,
+      "name": "Episodes Loading — Tablet",
+      "clip": true,
+      "width": 768,
+      "fill": "#fafafa",
+      "layout": "vertical",
+      "children": [
+        {
+          "id": "Gn6oF",
+          "type": "ref",
+          "ref": "X7j7V",
+          "width": "fill_container",
+          "name": "Header"
+        },
+        {
+          "id": "ypGWK",
+          "type": "ref",
+          "ref": "V7yCVX",
+          "width": "fill_container",
+          "name": "Page Hero"
+        },
+        {
+          "type": "frame",
+          "id": "mDKLx",
+          "name": "Episodes Main",
+          "width": "fill_container",
+          "fill": "#0a0a0a",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            32,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "PyeQL",
+              "name": "Episode Grid",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "M8hpth",
+                  "name": "Grid Row 1",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "id": "MQr9m",
+                      "type": "ref",
+                      "ref": "d43E3",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 1"
+                    },
+                    {
+                      "id": "Y3Clg",
+                      "type": "ref",
+                      "ref": "d43E3",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 2"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "N0hB6",
+                  "name": "Grid Row 2",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "id": "j2LgIG",
+                      "type": "ref",
+                      "ref": "d43E3",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 3"
+                    },
+                    {
+                      "id": "TTOUT",
+                      "type": "ref",
+                      "ref": "d43E3",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 4"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Nc0dG",
+                  "name": "Grid Row 3",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "id": "I4cfpD",
+                      "type": "ref",
+                      "ref": "d43E3",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 5"
+                    },
+                    {
+                      "id": "JUxSp",
+                      "type": "ref",
+                      "ref": "d43E3",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 6"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "DQCFn",
+                  "name": "Grid Row 4",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "id": "TZB9M",
+                      "type": "ref",
+                      "ref": "d43E3",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 7"
+                    },
+                    {
+                      "id": "sF7hd",
+                      "type": "ref",
+                      "ref": "d43E3",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 8"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "ohNMb",
+              "type": "ref",
+              "ref": "cx7c4",
+              "width": "fill_container",
+              "name": "Pagination Skeleton",
+              "gap": 6,
+              "descendants": {
+                "KIAVy": {
+                  "width": 32,
+                  "height": 32
+                },
+                "NO9f8": {
+                  "width": 32,
+                  "height": 32
+                },
+                "M31eWi": {
+                  "width": 32,
+                  "height": 32
+                },
+                "WLSlf": {
+                  "width": 32,
+                  "height": 32
+                },
+                "O8igf": {
+                  "width": 32,
+                  "height": 32
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "GhKOs",
+          "type": "ref",
+          "ref": "bWkjy",
+          "width": "fill_container",
+          "name": "Subscribe Section"
+        },
+        {
+          "id": "rU4g6",
+          "type": "ref",
+          "ref": "bQmKB",
+          "width": "fill_container",
+          "name": "Footer"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "SzLb9",
+      "x": 1990,
+      "y": 5316,
+      "name": "Episodes Loading — Mobile",
+      "clip": true,
+      "width": 390,
+      "fill": "#fafafa",
+      "layout": "vertical",
+      "children": [
+        {
+          "id": "Q7LRg",
+          "type": "ref",
+          "ref": "OML1p",
+          "width": "fill_container",
+          "name": "Header"
+        },
+        {
+          "id": "d1U3cK",
+          "type": "ref",
+          "ref": "Dh4wR",
+          "width": "fill_container",
+          "name": "Page Hero"
+        },
+        {
+          "type": "frame",
+          "id": "lbmCz",
+          "name": "Episodes Main",
+          "width": "fill_container",
+          "fill": "#0a0a0a",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            24,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "t9lbL",
+              "name": "Episode Grid",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Eqy8T",
+                  "name": "Grid Row 1",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "DCUvP",
+                      "type": "ref",
+                      "ref": "ACVDC",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 1"
+                    },
+                    {
+                      "id": "FkV5w",
+                      "type": "ref",
+                      "ref": "ACVDC",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 2"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "IM8qb",
+                  "name": "Grid Row 2",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "c10cP",
+                      "type": "ref",
+                      "ref": "ACVDC",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 3"
+                    },
+                    {
+                      "id": "cyCaE",
+                      "type": "ref",
+                      "ref": "ACVDC",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 4"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "kpHYS",
+                  "name": "Grid Row 3",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "GeG3s",
+                      "type": "ref",
+                      "ref": "ACVDC",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 5"
+                    },
+                    {
+                      "id": "LFc9D",
+                      "type": "ref",
+                      "ref": "ACVDC",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 6"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "L3wld",
+                  "name": "Grid Row 4",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "Qpnry",
+                      "type": "ref",
+                      "ref": "ACVDC",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 7"
+                    },
+                    {
+                      "id": "r1Rdvl",
+                      "type": "ref",
+                      "ref": "ACVDC",
+                      "width": "fill_container",
+                      "name": "Skeleton Card 8"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "Sy8CP",
+              "type": "ref",
+              "ref": "cx7c4",
+              "width": "fill_container",
+              "name": "Pagination Skeleton",
+              "gap": 6,
+              "descendants": {
+                "KIAVy": {
+                  "width": 30,
+                  "height": 30
+                },
+                "NO9f8": {
+                  "width": 30,
+                  "height": 30
+                },
+                "M31eWi": {
+                  "width": 30,
+                  "height": 30
+                },
+                "WLSlf": {
+                  "width": 30,
+                  "height": 30
+                },
+                "O8igf": {
+                  "width": 30,
+                  "height": 30
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "ZnFzl",
+          "type": "ref",
+          "ref": "PhUAu",
+          "width": "fill_container",
+          "name": "Subscribe Section"
+        },
+        {
+          "id": "B9tLT",
+          "type": "ref",
+          "ref": "KXd6O",
+          "width": "fill_container",
+          "name": "Footer"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "sGWRD",
+      "x": 1520,
+      "y": 20727,
+      "name": "Transcript Sync Control/Playing",
+      "reusable": true,
+      "width": 720,
+      "fill": "#f5f5f5",
+      "cornerRadius": 4,
+      "stroke": "#e5e5e5",
+      "strokeWidth": 1,
+      "strokeAlignment": "inner",
+      "padding": [
+        12,
+        16
+      ],
+      "justifyContent": "space_between",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "ZGFfj",
+          "name": "Control Left",
+          "gap": 12,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "o6FVe",
+              "name": "Pause Button",
+              "width": 36,
+              "height": 36,
+              "fill": "#0a0a0a",
+              "cornerRadius": 4,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "pKdNp",
+                  "name": "Pause Icon",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "pause",
+                  "library": "lucide",
+                  "fill": "#fafafa"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "anozt",
+              "name": "Control Copy",
+              "layout": "vertical",
+              "gap": 2,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Xr2X6",
+                  "name": "Control Title",
+                  "fill": "#0a0a0a",
+                  "content": "Following playback",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "XN8Te",
+                  "name": "Control Hint",
+                  "fill": "#737373",
+                  "content": "Transcript scrolls with the video",
+                  "fontFamily": "Geist",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "MOuFP",
+          "name": "Status Pill",
+          "fill": "#0a0a0a",
+          "cornerRadius": 999,
+          "gap": 6,
+          "padding": [
+            6,
+            10
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "uvKc5",
+              "name": "Live Dot",
+              "width": 6,
+              "height": 6,
+              "fill": "#22c55e",
+              "cornerRadius": 999
+            },
+            {
+              "type": "text",
+              "id": "RDbo0",
+              "name": "Status Label",
+              "fill": "#fafafa",
+              "content": "In sync",
+              "fontFamily": "Geist Mono",
+              "fontSize": 11,
+              "fontWeight": "normal",
+              "letterSpacing": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "z7obDf",
+      "x": 2320,
+      "y": 20727,
+      "name": "Transcript Sync Control/Paused",
+      "reusable": true,
+      "width": 720,
+      "fill": "#fafafa",
+      "cornerRadius": 4,
+      "stroke": "#e5e5e5",
+      "strokeWidth": 1,
+      "strokeAlignment": "inner",
+      "padding": [
+        12,
+        16
+      ],
+      "justifyContent": "space_between",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "T8hsLu",
+          "name": "Control Left",
+          "gap": 12,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "NdJxI",
+              "name": "Play Button",
+              "width": 36,
+              "height": 36,
+              "fill": "#00000000",
+              "cornerRadius": 4,
+              "stroke": "#d4d4d4",
+              "strokeWidth": 1,
+              "strokeAlignment": "inner",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "wlFrv",
+                  "name": "Play Icon",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "play",
+                  "library": "lucide",
+                  "fill": "#0a0a0a"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "uyN4n",
+              "name": "Control Copy",
+              "layout": "vertical",
+              "gap": 2,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "J461M",
+                  "name": "Control Title",
+                  "fill": "#0a0a0a",
+                  "content": "Follow playback",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "apdhw",
+                  "name": "Control Hint",
+                  "fill": "#737373",
+                  "content": "Tap play to resume auto-scroll",
+                  "fontFamily": "Geist",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n0Kfs",
+          "name": "Status Pill",
+          "fill": "#e5e5e5",
+          "cornerRadius": 999,
+          "gap": 6,
+          "padding": [
+            6,
+            10
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "yewEa",
+              "name": "Status Label",
+              "fill": "#525252",
+              "content": "Paused",
+              "fontFamily": "Geist Mono",
+              "fontSize": 11,
+              "fontWeight": "normal",
+              "letterSpacing": 0.5
             }
           ]
         }

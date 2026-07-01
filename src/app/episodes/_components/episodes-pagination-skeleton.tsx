@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import type { FC } from "react";
 
 import styles from "./episodes-pagination-skeleton.module.css";
@@ -19,7 +20,10 @@ export const EpisodesPaginationSkeleton: FC = () => (
     {PAGE_SKELETON_KEYS.map((key, index) => (
       <li
         key={key}
-        className={`${styles["episodes-pagination-skeleton__item"]}${index === 0 ? ` ${styles["episodes-pagination-skeleton__item--active"]}` : ""}`}
+        className={clsx({
+          [styles["episodes-pagination-skeleton__item"]]: true,
+          [styles["episodes-pagination-skeleton__item--active"]]: index === 0,
+        })}
       />
     ))}
   </ol>

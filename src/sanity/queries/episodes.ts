@@ -9,7 +9,13 @@ export const EPISODE_QUERY = defineQuery(
     guests[]->{
       _id,
       name,
-      role
+      role,
+      avatar {
+        asset,
+        alt,
+        hotspot,
+        crop
+      }
     },
     publishedAt,
     durationMinutes,
@@ -20,16 +26,12 @@ export const EPISODE_QUERY = defineQuery(
       crop
     },
     showNotes,
-    guests[]->{
-      _id,
-      name,
-      role,
-      avatar {
-        asset,
-        alt,
-        hotspot,
-        crop
-      }
+    "showNotesExcerpt": pt::text(showNotes),
+    youtubeUrl,
+    transcript[]{
+      start,
+      speaker,
+      text
     },
     hosts[]->{
       _id,
@@ -48,9 +50,43 @@ export const EPISODE_QUERY = defineQuery(
 export const EPISODE_METADATA_QUERY = defineQuery(
   `*[_type == "episode" && slug.current == $slug][0]{
     title,
+    episodeNumber,
+    publishedAt,
+    durationMinutes,
+    youtubeUrl,
+    "showNotesExcerpt": pt::text(showNotes),
+    artwork {
+      asset,
+      alt,
+      hotspot,
+      crop
+    },
     guests[]->{
       name
     }
+  }`,
+);
+
+export const RELATED_EPISODES_QUERY = defineQuery(
+  `*[_type == "episode" && slug.current != $slug && episodeNumber in $numbers] | order(episodeNumber desc) {
+    _id,
+    episodeNumber,
+    title,
+    slug,
+    guests[]->{
+      _id,
+      name,
+      role
+    },
+    publishedAt,
+    durationMinutes,
+    artwork {
+      asset,
+      alt,
+      hotspot,
+      crop
+    },
+    "showNotes": pt::text(showNotes)
   }`,
 );
 
